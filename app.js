@@ -23,12 +23,21 @@ const projectName = "crud-project";
 
 app.locals.appTitle = `${capitalized(projectName)} created with IronLauncher`;
 
+// store session in res.locals.session to reuse in layout
+app.use((req, res, next) => {
+    res.locals.session = req.session;
+    next()
+});
+
 // 👇 Start handling routes here
 const index = require("./routes/index.routes");
 app.use("/", index);
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
+
+const userRoutes = require("./routes/user.routes");
+app.use("/user", userRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
