@@ -1,14 +1,16 @@
 <form action="/auth/login" method="POST">
-   <label> Username
-      <input type="text" name="username">
-   </label>
-   <label> Password
-      <input type="password" name="password">
-   </label>
-
-   <button type="submit">Submit</button>
+  {{#if errorMessage}}
+    <br />
+    <p id="error-form">{{errorMessage}}</p>
+    <br />
+  {{/if}}
+  <label>
+    Email
+    <input type="email" name="email" placeholder="email@mail.com" required />
+  </label>
+  <label>
+    Password
+    <input type="password" name="password" placeholder="********" required />
+  </label>
+  <button type="submit">Submit</button>
 </form>
-
-{{#if errorMessage}}
-   {{errorMessage}}
-{{/if}}
