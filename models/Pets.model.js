@@ -5,11 +5,15 @@ const {Schema, model} = require("mongoose");
 const petsSchema = new Schema (
     {
         type: {
-        enum: ["dog", "cat"],
+            type: "String",
+            enum: ["dog", "cat"],
         },
         breed: String,
         country: String,
-        gender: String,
+        gender: {
+            type: "String",
+            enum: ["male", "female"],
+        },
         user: {type: mongoose.Schema.Types.ObjectId,
             ref: "User"},
         imageFile: "String",
