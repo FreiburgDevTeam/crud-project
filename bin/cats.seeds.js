@@ -1,6 +1,6 @@
 const { default: mongoose } = require("mongoose");
-const Dog = require("../models/Pets.model");
-const Cat = require("../models/Pets.model");
+const Pet = require("../models/Pets.model");
+
 
 const MONGO_URI = process.env.MONGODB_URI || 'mongodb://localhost/crud-project';
 
@@ -29,27 +29,12 @@ mongoose
     }
   ]
 
-  const dogs = (
-    {
-        enum: "dog",
-        breed: "German Shepherd",
-        country: "Germany",
-        fur: "Fur",
-        gender: "Male",
-        user: {type: mongoose.Schema.Types.ObjectId,
-            ref: "User"},
-        imageFile: "/public/images/default-img-dog.jpg",
-        favouriteFood: "meats"
-    }
-);
+  
 
-Cat.create(cats)
+Pet.create(cats)
   .then(catFromDB => {
     console.log(`Created ${catFromDB.length} cats`);
-    return Dog.create(dogs);
-  })
-  .then(dogsFromDB => {
-    console.log(`Created ${dogsFromDB.length} dogs`);
+    return Dog.create(cats);
     mongoose.connection.close();
   })
   .catch(err => console.log(`An error occurred seeding data in DB: ${err}`));
