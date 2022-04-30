@@ -1,30 +1,35 @@
 const { default: mongoose } = require("mongoose");
-const {Schema, model} = require("mongoose");
+const { Schema, model } = require("mongoose");
 
-
-const petsSchema = new Schema (
+const petsSchema = new Schema(
     {
+        name: {
+            type: String,
+            required: [true, "Name is required"],
+        },
         type: {
-            type: "String",
+            type: String,
             enum: ["dog", "cat"],
+            required: [true, "Type is required"],
         },
         breed: String,
-        country: String,
+        country: {
+            type: String,
+            required: [true, "Country is required"],
+        },
         gender: {
-            type: "String",
+            type: String,
             enum: ["male", "female"],
         },
-        user: {type: mongoose.Schema.Types.ObjectId,
-            ref: "User"},
-        imageFile: "String",
-        favouriteFood: "String"
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        },
+        imageFile: String,
+        favouriteFood: String
     }
 );
 
-
-
-const Pet = model('Pet', petsSchema)
-
-
+const Pet = model('Pet', petsSchema);
 
 module.exports = Pet;
