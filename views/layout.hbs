@@ -16,14 +16,19 @@
           <li><a href="/pets"> PETS </a></li>
         </ul>
         <ul>
-          <li><a href="/auth/login"> LOGIN </a></li>
-          <li><a href="/auth/signup"> SIGN UP </a></li>
-        </ul>        
+          {{#if session.user}}
+            <li><a href="/user/profile"> MY PROFILE </a></li>
+            <li><a href="/auth/logout"> LOGOUT </a></li>
+          {{else}}
+            <li><a href="/auth/login"> LOGIN </a></li>
+            <li><a href="/auth/signup"> SIGN UP </a></li>
+          {{/if}}
+        </ul>
       </nav>
     </header>
-    <br>
-    <hr>
-    <br>
+    <br />
+    <hr />
+    <br />
 
     {{{body}}}
 
