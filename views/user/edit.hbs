@@ -1,19 +1,26 @@
 <h1>Profile Page</h1>
-<hr>
-<br>
+<hr />
+<br />
 <h3>Account details</h3>
 <form action="/user/edit/{{user._id}}" method="POST">
-  <label> Name:
+  <label>
+    Name:
     <input type="text" name="name" value="{{user.name}}" />
   </label>
 
-  <label> email:
+  <label>
+    email:
     <input type="email" name="email" value="{{user.email}}" />
   </label>
 
-  <label> Telephone:
-    <input type="tel"  name="telephone" value="{{user.telephone}}" />
+  <label>
+    Telephone:
+    <input type="tel" name="telephone" value="{{user.telephone}}" />
   </label>
 
   <button>Save changes</button>
+  <br />
+</form>
+<form method="post" action="/user/edit/{{user._id}}/delete">
+  <button onclick="return confirm('Do you want to delete your account? All your pets will be remove')">Delete Account</button>
 </form>

@@ -40,14 +40,34 @@ router.post('/edit/:userID', isLoggedIn, (req, res, next) => {
     telephone: req.body.telephone
   }
   // search and update user in DB using ID
-  User.findByIdAndUpdate(userID, newDetails)
+  User.findByIdAndUpdate(userID, newDetails, { new: true })
     .then( response => {
       // update session
       req.session.user = response;
       res.redirect('/user/profile')
     })
     .catch( err => {
-      console.log("Error searching a user in DB with id", err);
+      console.log("Error searching a user by ID in DB", err);
+      next(err)
+    }) 
+})
+
+// route to delete user
+router.post('/edit/:userID/delete', isLoggedIn, (req, res, next) => {
+  const userID = req.params.userID;
+    User.findByIdAndRemove(userID)
+    .then( () => {
+      req.session.destroy((err) => {
+        if (err) {
+          return res
+            .status(500)
+            .render("auth/logout", { errorMessage: err.message });
+        }
+        res.redirect("/");
+      });
+    })
+    .catch( err => {
+      console.log("Error deleting a user in DB", err);
       next(err)
     }) 
 })
