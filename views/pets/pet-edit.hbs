@@ -1,0 +1,32 @@
+
+<h2>Edit {{name}}</h2>
+
+<form action="/pets/{{_id}}/edit" method="POST">
+  <label> Name:
+    <input type="text" name="name" value="{{name}}" />
+  </label>
+
+    <p>Type: {{type}}</p>
+
+  <label> Breed:
+    <input type="text" name="breed" value="{{breed}}" />
+  </label>
+
+  <label> Country:
+    <input type="text" name="country" value="{{country}}" />
+  </label>
+
+  <label> Gender:
+    <input type="text" name="gender" value="{{gender}}" />
+  </label>
+
+   imageFile: --
+   
+  <label> Favourite Food:
+    <input type="text" name="favouriteFood" value="{{favouriteFood}}" />
+  </label>
+
+  
+
+  <button>Save changes</button>
+</form>
