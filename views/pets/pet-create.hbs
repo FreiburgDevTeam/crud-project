@@ -37,18 +37,12 @@
       <option value="female">Female</option>
     </select>
   </label>
-  <br/>
 
-  <label>
-    User:
-    <select name="user">
-      {{#each users}}
-        <option value="{{this._id}}">{{this.name}}</option>
-        <br />
-      {{/each}}
-    </select>
-  </label>
-  <br/>
+ 
+      {{#each user}}
+    <p> Owner: {{name}}</p>
+ 
+{{/each}}
 
   <label>
     Favourite Food:

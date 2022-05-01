@@ -1,7 +1,11 @@
+const isLoggedIn = require("../middleware/isLoggedIn");
+const isLoggedOut = require("../middleware/isLoggedOut");
 const { populate } = require("../models/Pets.model");
 const Pet = require("../models/Pets.model");
 const User = require("../models/User.model");
 const router = require("./user.routes");
+
+
 
 
 // READ: display list of Pets
@@ -18,10 +22,11 @@ router.get("/", (req, res, next) => {
 });
 
 // create a Pet
-router.get("/create", (req, res, next) => {
-    User.find()
-        .then(userArr => {
-            res.render("pets/pet-create", {users: userArr});
+router.get("/create", isLoggedIn, (req, res, next) => {
+    
+    User.find(req.session.user)
+        .then(userName => {
+            res.render("pets/pet-create", {user: userName});
         })
         .catch(err => {
             console.log("error getting user from DB", err)
@@ -30,7 +35,7 @@ router.get("/create", (req, res, next) => {
 })
 
 // process create form
-router.post("/create", (req, res, next) => {
+router.post("/create", isLoggedIn, (req, res, next) => {
 
     const newPet = {
         name: req.body.name,
@@ -38,10 +43,10 @@ router.post("/create", (req, res, next) => {
         breed: req.body.breed,
         country: req.body.country,
         gender: req.body.gender,
-        user: req.body.user,
+        user: req.session.user._id,
         favouriteFood: req.body.favouriteFood,
     }
-
+   
     Pet.create(newPet)
         .then(() => {
             res.redirect("/pets");
@@ -69,7 +74,7 @@ router.get("/:petId", (req, res, next) => {
 });
 
 // Edit pet display form 
-router.get("/:petId/edit", (req, res, next) => {
+router.get("/:petId/edit", isLoggedIn, (req, res, next) => {
     const id = req.params.petId;
     Pet.findById(id)
         .then((petDetails) => {
@@ -83,7 +88,7 @@ router.get("/:petId/edit", (req, res, next) => {
 
 
 // Edit pet form
-router.post("/:petId/edit", (req, res, next) => {
+router.post("/:petId/edit", isLoggedIn, (req, res, next) => {
 
     const id = req.params.petId;
 
@@ -107,7 +112,7 @@ router.post("/:petId/edit", (req, res, next) => {
 
 
 // Delete a pet
-router.post("/:petId/delete", (req, res, next) => {
+router.post("/:petId/delete", isLoggedIn, (req, res, next) => {
     const id = req.params.petId;
     Pet.findByIdAndRemove(id)
         .then( () => {
