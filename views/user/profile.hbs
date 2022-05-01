@@ -1,21 +1,45 @@
-<h1>Profile Page</h1>
-<hr>
-<br>
-{{#if session.user}}
-<h2>Welcome {{session.user.name}}!</h2>
-<h3>Account details</h3>
-<div>
-<img src="/images/avatar-user.png" alt="{{session.user.name}} profile image">
-</div>
-<div>
-<p>Name: {{session.user.name}}</p>
-<p>Email: {{session.user.email}}</p>
-<p>Tel.: {{session.user.telephone}}</p>
-</div>
+<header>
+  <h1>Profile Page</h1>
+  <br>
+  {{#if session.user}}
+  <h2>Welcome {{session.user.name}}!</h2>
+  <br>
+</header>
+<section>
   <div>
-<a href="/user/edit/{{session.user._id}}">Edit</a>
+    <h3>Account details</h3>
+    <a href="/user/edit/{{session.user._id}}">Edit</a>
   </div>
+  <hr>
+  <br>
+  <div>
+    <img src="/images/avatar-user.png" alt="{{session.user.name}} profile image">
+    <div>
+      <p>Name: {{session.user.name}}</p>
+      <p>Email: {{session.user.email}}</p>
+      <p>Tel.: {{session.user.telephone}}</p>
+    </div>
+  </div>
+</section>
+
+<section>
+    <h3>My Pets</h3>
+  <hr>
+  <br>
+  {{#each pets}}
+  <div>
+    <img src="/images/default-img-cat.jpg" alt="{{this.name}} profile image">
+    <div>
+      <p>Name: {{this.name}}</p>
+      <p>Type: {{this.type}}</p>
+      <p>Breed: {{this.breed}}</p>
+      <a href="/pets/{{this._id}}/edit">Edit Pet</a>
+    </div>
+  </div>
+  <br>
+  {{/each}}
+</section>
 
 {{else}}
-  <p>Please login to see your profile page</p>
+<p>Please login to see your profile page</p>
 {{/if}}

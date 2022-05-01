@@ -3,6 +3,7 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const User = require("../models/User.model");
+const Pet = require("../models/Pets.model");
 
 // import environment variables 
 require('dotenv').config();
@@ -13,8 +14,15 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 
 // route GET to display user profile
 router.get('/profile', isLoggedIn, (req, res, next) => {
-
-    res.render("user/profile")
+  Pet.find({user: req.session.user._id})
+    .then( petsArr => {
+      // console.log("Pets: ",{petsArr});
+      res.render("user/profile", {pets: petsArr})
+    })
+    .catch( err => {
+      console.log("Error searching a user by ID in DB", err);
+      next(err)
+    }) 
   });
 
 // route GET to display user form
