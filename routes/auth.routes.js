@@ -21,11 +21,11 @@ router.get("/signup", isLoggedOut, (req, res) => {
 
 // Route POST to process the signup form
 router.post("/signup", isLoggedOut, (req, res) => {
-  const { email, password } = req.body;
+  const { email, password, name } = req.body;
 
-  if (!email) {
+  if (!name || !email || !password) {
     return res.status(400).render("auth/signup", {
-      errorMessage: "Please provide your email.",
+      errorMessage: "Please provide the required information.",
     });
   }
   
@@ -54,6 +54,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
         return User.create({
           email,
           passwordHash: hashedPassword,
+          name
         });
       })
       .then((user) => {
