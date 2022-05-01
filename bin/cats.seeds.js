@@ -25,7 +25,8 @@ mongoose
         gender: "female",
         user: "626e33f55bd5bbac2e248fb5",
         imageFile: "default-img-cat.jpg",
-        favouriteFood: "tuna"
+        favouriteFood: "tuna",
+        
     },
     {
       name: "stray",
@@ -35,7 +36,8 @@ mongoose
       gender: "male",
       user: "626e33f55bd5bbac2e248fb6",
       imageFile: "default-img-cat.jpg",
-      favouriteFood: "cat-nip"
+      favouriteFood: "cat-nip",
+      
   },
   {
     name: "Lulu",

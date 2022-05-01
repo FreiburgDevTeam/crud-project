@@ -1,0 +1,18 @@
+<h1>List of Pets</h1>
+
+{{#each pets}}
+    <section>
+        <h2>{{name}}</h2>
+        <h4> {{this.type}}</h4>
+        <ul>
+            <li>Breed: {{this.breed}}</li>
+            <li>Country: {{this.country}}</li>
+            <li>Gender: {{this.gender}}</li>
+            <li>Owner: {{this.user.name}}</li>
+            <li>{{this.imageFile}}</li>
+            <li>Favourite food: {{this.favouritefood}}</li>
+        </ul>
+        <a href="/pets/{{this.id}}">More details</a>
+        <hr>
+    </section>
+{{/each}}
