@@ -17,6 +17,42 @@ router.get("/", (req, res, next) => {
         });
 });
 
+// create a Pet
+router.get("/create", (req, res, next) => {
+    User.find()
+        .then(userArr => {
+            res.render("pets/pet-create", {users: userArr});
+        })
+        .catch(err => {
+            console.log("error getting user from DB", err)
+            next(err);
+        });    
+})
+
+// process create form
+router.post("/create", (req, res, next) => {
+
+    const newPet = {
+        name: req.body.name,
+        type: req.body.type,
+        breed: req.body.breed,
+        country: req.body.country,
+        gender: req.body.gender,
+        user: req.body.user,
+        favouriteFood: req.body.favouriteFood,
+    }
+
+    Pet.create(newPet)
+        .then(() => {
+            res.redirect("/pets");
+        })
+        .catch(err => {
+            console.log("error posting Pet", err)
+            next(err);
+        });
+
+})
+
 // READ: display Pet details
 router.get("/:petId", (req, res, next) => {
     const id = req.params.petId;
