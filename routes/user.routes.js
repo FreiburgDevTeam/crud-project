@@ -12,13 +12,44 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 // route GET to display user profile
-router.get("/profile", isLoggedIn, (req, res, next) => {
-    res.render("user/profile");
+router.get('/profile', isLoggedIn, (req, res, next) => {
+
+    res.render("user/profile")
   });
 
 // route GET to display user form
-router.get("/edit", isLoggedIn, (req, res, next) => {
-    res.render("user/profile");
+router.get('/edit/:userID', isLoggedIn, (req, res, next) => {
+  const userID = req.params.userID;
+  // search user by ID in DB
+  User.findById(userID)
+    .then( userObject => {
+      res.render('user/edit', {user: userObject});
+    })
+    .catch( err => {
+      console.log("Error searching a user by ID in DB", err);
+      next(err)
+    })  
   });
+
+// route POST to udapte user
+router.post('/edit/:userID', isLoggedIn, (req, res, next) => {
+  const userID = req.params.userID;
+  const newDetails = {
+    name: req.body.name,
+    email: req.body.email,
+    telephone: req.body.telephone
+  }
+  // search and update user in DB using ID
+  User.findByIdAndUpdate(userID, newDetails)
+    .then( response => {
+      // update session
+      req.session.user = response;
+      res.redirect('/user/profile')
+    })
+    .catch( err => {
+      console.log("Error searching a user in DB with id", err);
+      next(err)
+    }) 
+})
 
 module.exports = router;

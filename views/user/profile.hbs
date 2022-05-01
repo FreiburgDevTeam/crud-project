@@ -5,7 +5,7 @@
 <h2>Welcome {{session.user.name}}!</h2>
 <h3>Account details</h3>
 <div>
-<img src="/images/avatar-user.png" alt="{{session.user}} profile image">
+<img src="/images/avatar-user.png" alt="{{session.user.name}} profile image">
 </div>
 <div>
 <p>Name: {{session.user.name}}</p>
@@ -17,5 +17,5 @@
   </div>
 
 {{else}}
-  <p>Still no logged in user, sorry!</p>
+  <p>Please login to see your profile page</p>
 {{/if}}
