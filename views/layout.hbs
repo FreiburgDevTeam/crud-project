@@ -17,6 +17,7 @@
         </ul>
         <ul>
           {{#if session.user}}
+            <li><a href="/pets/create"> NEW PET </a></li>
             <li><a href="/user/profile"> MY PROFILE </a></li>
             <li><a href="/auth/logout"> LOGOUT </a></li>
           {{else}}
@@ -26,9 +27,9 @@
         </ul>
       </nav>
     </header>
-    <br />
-    <hr />
-    <br />
+    <br/>
+    <hr/>
+    <br/>
 
     {{{body}}}
 
