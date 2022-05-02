@@ -121,7 +121,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
           });
         }
         req.session.user = user;
-        return res.redirect("/");
+        return res.redirect("/user/profile");
       });
     })
 
