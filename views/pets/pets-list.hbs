@@ -1,27 +1,13 @@
-{{!-- <form action="/pets/search" method="POST">
-    <select name="type" required>
-        <option value="dog" selected>Dog</option>
-        <option value="cat">Cat</option>
-    </select>
-    <select name="country">
-        {{#each pets}}
-        <option value="{{this.country}}">{{this.country}}</option>
-        {{/each}}
-    </select>   
-    <button type="submit">Search</button>
-</form> --}}
-
-
 <h1>List of Pets</h1>
 {{#each pets}}
 <section>
+    <img src="/images/avatar-pets/{{this.avatar}}" alt="{{this.type}} image profile">
     <h2>{{name}}</h2>
     <h4> {{this.type}}</h4>
     <ul>
         <li>Breed: {{this.breed}}</li>
         <li>Country: {{this.country}}</li>
         <li>Gender: {{this.gender}}</li>
-        <li>{{this.imageFile}}</li>
         <li>Favourite food: {{this.favouritefood}}</li>
         <br>
         <li>Owner: {{user.name}} <button onclick="document.getElementById('{{user._id}}').innerHTML='Email: {{user.email}}<br><br>Telephone:{{user.telephone}}'"> CONTACT </button></li>

@@ -25,7 +25,7 @@ const petsSchema = new Schema(
             type: mongoose.Schema.Types.ObjectId,
             ref: "User"
         },
-        imageFile: String,
+        avatar: String,
         favouriteFood: String,
         description: {
             type: String,

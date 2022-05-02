@@ -36,6 +36,15 @@ router.get("/create", isLoggedIn, (req, res, next) => {
 
 // process create form
 router.post("/create", isLoggedIn, (req, res, next) => {
+    const avatarDogs =["dog1.png", "dog2.png", "dog3.png", "dog4.png", "dog5.png"];
+    const avatarCats = ["cat1.png", "cat2.png", "cat3.png", "cat4.png", "cat5.png"];
+    if (req.body.type === 'dog'){
+        let randomIndex = Math.floor(Math.random()*avatarDogs.length);
+        req.body.avatar = avatarDogs[randomIndex];
+    } else if (req.body.type === 'cat'){
+        let randomIndex = Math.floor(Math.random()*avatarCats.length);
+        req.body.avatar = avatarCats[randomIndex];
+    }
 
     const newPet = {
         name: req.body.name,
@@ -46,6 +55,7 @@ router.post("/create", isLoggedIn, (req, res, next) => {
         user: req.session.user._id,
         favouriteFood: req.body.favouriteFood,
         description: req.body.description,
+        avatar: req.body.avatar
     }
    
     Pet.create(newPet)
