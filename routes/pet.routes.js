@@ -12,7 +12,7 @@ const router = require("./user.routes");
 router.get("/", (req, res, next) => {
     Pet.find()
         .populate("user")
-        .then((petsArr) => {
+        .then(petsArr => {
             res.render("pets/pets-list", { pets: petsArr });
         })
         .catch(err => {
@@ -91,7 +91,7 @@ router.get("/:petId/edit", isLoggedIn, (req, res, next) => {
         .then(petDetails => {
             if (req.session.user._id == petDetails.user._id) {
                 res.render("pets/pet-edit", petDetails);
-            } else( res.send("Your are not the Owner of the Pet"))
+            } else( res.render("pets/pet-notAnOWner"))
         })
         .catch(err => {
             console.log("error getting pet details from DB", err)
@@ -134,7 +134,7 @@ router.post("/:petId/delete", isLoggedIn, (req, res, next) => {
         .then( petId => {
             if (req.session.user._id == petId.user._id) {
                 res.redirect("/pets");
-            } else( res.send("Your are not the Owner of the Pet"))
+            } else( res.render("pets/pet-notAnOWner"))
             
         })
         .catch(err => {

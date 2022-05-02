@@ -3,13 +3,12 @@
 <section>
     <img src="/images/avatar-pets/{{this.avatar}}" alt="{{this.type}} image profile">
     <h2>{{name}}</h2>
-    <h4> {{this.type}}</h4>
     <ul>
         <li>Breed: {{this.breed}}</li>
         <li>Country: {{this.country}}</li>
         <li>Gender: {{this.gender}}</li>
         <li>Favourite food: {{this.favouritefood}}</li>
-        <br>
+        <p>Description: <br>{{description}}</p>
         <li>Owner: {{user.name}} <button onclick="document.getElementById('{{user._id}}').innerHTML='Email: {{user.email}}<br><br>Telephone:{{user.telephone}}'"> CONTACT </button></li>
         <p id="{{user._id}}"></p>
     </ul>
