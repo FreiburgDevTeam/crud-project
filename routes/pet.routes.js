@@ -45,6 +45,7 @@ router.post("/create", isLoggedIn, (req, res, next) => {
         gender: req.body.gender,
         user: req.session.user._id,
         favouriteFood: req.body.favouriteFood,
+        description: req.body.description,
     }
    
     Pet.create(newPet)
@@ -64,7 +65,7 @@ router.get("/:petId", (req, res, next) => {
 
     Pet.findById(id)
         .populate("user")
-        .then((petDetails) => {
+        .then(petDetails => {
             res.render("pets/pet-details", petDetails);
         })
         .catch(err => {
@@ -77,7 +78,7 @@ router.get("/:petId", (req, res, next) => {
 router.get("/:petId/edit", isLoggedIn, (req, res, next) => {
     const id = req.params.petId;
     Pet.findById(id)
-        .then((petDetails) => {
+        .then(petDetails => {
             res.render("pets/pet-edit", petDetails);
         })
         .catch(err => {
@@ -98,6 +99,7 @@ router.post("/:petId/edit", isLoggedIn, (req, res, next) => {
         country: req.body.country,
         gender: req.body.gender,
         favouriteFood: req.body.favouriteFood,
+        description: req.body.description,
     };
 
     Pet.findByIdAndUpdate(id, newDetails)
