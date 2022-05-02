@@ -79,7 +79,9 @@ router.get("/:petId/edit", isLoggedIn, (req, res, next) => {
     const id = req.params.petId;
     Pet.findById(id)
         .then(petDetails => {
-            res.render("pets/pet-edit", petDetails);
+            if (req.session.user._id == petDetails.user._id) {
+                res.render("pets/pet-edit", petDetails);
+            } else( res.send("Your are not the Owner of the Pet"))
         })
         .catch(err => {
             console.log("error getting pet details from DB", err)
@@ -115,10 +117,15 @@ router.post("/:petId/edit", isLoggedIn, (req, res, next) => {
 
 // Delete a pet
 router.post("/:petId/delete", isLoggedIn, (req, res, next) => {
+
+
     const id = req.params.petId;
     Pet.findByIdAndRemove(id)
-        .then( () => {
-            res.redirect("/pets");
+        .then( petId => {
+            if (req.session.user._id == petId.user._id) {
+                res.redirect("/pets");
+            } else( res.send("Your are not the Owner of the Pet"))
+            
         })
         .catch(err => {
             console.log('Error deleting a pet', err)
@@ -131,3 +138,5 @@ router.post("/:petId/delete", isLoggedIn, (req, res, next) => {
 
 
 module.exports = router;
+
+
