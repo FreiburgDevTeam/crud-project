@@ -4,7 +4,10 @@ const userSchema = new Schema(
   {
     name: String,
     telephone: Number,
-    avatar: String,
+    avatar: {
+      type: String,
+      default: "avatar-user.png"
+    },
     email:
     {
       type: String,
