@@ -12,7 +12,7 @@ const router = require("./user.routes");
 router.get("/", (req, res, next) => {
     Pet.find()
         .populate("user")
-        .then((petsArr) => {
+        .then(petsArr => {
             res.render("pets/pets-list", { pets: petsArr });
         })
         .catch(err => {
