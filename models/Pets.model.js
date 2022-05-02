@@ -26,7 +26,12 @@ const petsSchema = new Schema(
             ref: "User"
         },
         imageFile: String,
-        favouriteFood: String
+        favouriteFood: String,
+        description: {
+            type: String,
+            required: [true, "description is required"]   
+        }
+        
     }
 );
 

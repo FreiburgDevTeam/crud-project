@@ -1,6 +1,10 @@
 <h1>{{name}} Details</h1>
 
-<a href="/pets/{{_id}}/edit">Edit</a>
+<h4>Description</h4> <br>
+<p> {{description}}</p>
+
+
+<a href="/pets/{{_id}}/edit">Edit</a> <br>
 
 <form action="/pets/{{_id}}/delete" method="POST">
 <button type="submit">Delete</button>
