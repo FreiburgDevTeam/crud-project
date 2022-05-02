@@ -34,7 +34,7 @@
     Gender:
     <select name="gender">
       <option value="male">Male</option>
-      <option value="female">Female</option>
+      <option value="female">Female</option> 
     </select>
   </label>
 
@@ -43,7 +43,7 @@
     <p> Owner: {{name}}</p>
  
 {{/each}}
-
+<br>
   <label>
     Favourite Food:
     <input type="text" name="favouriteFood" required />
@@ -51,7 +51,7 @@
   </label>
 
   <label> Description: <br>
-    <textarea name="description" cols="40" rows="8" minlength="30"> </textarea>
+    <textarea name="description" cols="40" rows="8" minlength="20" maxlength="50"> </textarea>
   </label><br>
 
   <button type="submit"> Create </button>
