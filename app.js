@@ -42,6 +42,9 @@ app.use("/user", userRoutes);
 const petRoutes = require("./routes/pet.routes");
 app.use("/pets", petRoutes);
 
+const aboutRoutes = require("./routes/about.routes");
+app.use("/", aboutRoutes);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
