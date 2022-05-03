@@ -1,14 +1,22 @@
+<form action="/pets?{{req.query}}" method="GET">
+    <select name="type" required>
+        <option value="dog" selected>Dog</option>
+        <option value="cat">Cat</option>
+    </select>
+    <input type="text" name="city" placeholder="Search pets in your city" required>
+    <button type="submit">Search</button>
+</form>
 <h1>List of Pets</h1>
 {{#each pets}}
 <section>
     <img src="/images/avatar-pets/{{this.avatar}}" alt="{{this.type}} image profile">
-    <h2>{{name}}</h2>
+    <h2>{{this.name}}</h2>
     <ul>
         <li>Breed: {{this.breed}}</li>
         <li>City: {{this.city}}</li>
         <li>Gender: {{this.gender}}</li>
         <li>Favourite food: {{this.favouritefood}}</li>
-        <p>Description: <br>{{description}}</p>
+        <p>Description: <br>{{this.description}}</p>
         <li>Owner: {{user.name}} <button onclick="document.getElementById('{{user._id}}').innerHTML='Email: {{user.email}}<br><br>Telephone:{{user.telephone}}'"> CONTACT </button></li>
         <p id="{{user._id}}"></p>
     </ul>
