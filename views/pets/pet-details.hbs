@@ -11,7 +11,7 @@
 </ul>
 
 
-{{#if session.user}}
+{{#if isOwner}}
 <a href="/pets/{{_id}}/edit">Edit</a> <br>
 
 <form action="/pets/{{_id}}/delete" method="POST">

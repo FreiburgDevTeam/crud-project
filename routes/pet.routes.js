@@ -1,5 +1,6 @@
 const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
+const isOwner = require("../middleware/isOwner");
 const { populate } = require("../models/Pets.model");
 const Pet = require("../models/Pets.model");
 const User = require("../models/User.model");
@@ -69,15 +70,17 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 });
 
 // READ: display Pet details
-router.get("/:petId", (req, res, next) => {
+router.get("/:petId",(req, res, next) => {
+    
+  
     const id = req.params.petId;
     
     Pet.findById(id)
         .populate("user")
         .then(petDetails => {
-            // if (req.session.user._id == petDetails.user._id) {
-                res.render("pets/pet-details", petDetails)
-            // } else ( res.render("pets/pet-notAnOWner"))
+         res.render("pets/pet-details", petDetails)
+        
+            
         }) 
         .catch(err => {
             console.log("error getting pet details from DB", err)
@@ -90,9 +93,7 @@ router.get("/:petId/edit", isLoggedIn, (req, res, next) => {
     const id = req.params.petId;
     Pet.findById(id)
         .then(petDetails => {
-            if (req.session.user._id == petDetails.user._id) {
                 res.render("pets/pet-edit", petDetails);
-            } else (res.render("pets/pet-notAnOWner"))
         })
         .catch(err => {
             console.log("error getting pet details from DB", err)
