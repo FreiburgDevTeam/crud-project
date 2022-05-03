@@ -10,7 +10,8 @@ const router = require("./user.routes");
 
 // READ: display list of Pets
 router.get("/", (req, res, next) => {
-    Pet.find()
+
+    Pet.find(req.query)
         .populate("user")
         .then(petsArr => {
             res.render("pets/pets-list", { pets: petsArr });
@@ -50,7 +51,7 @@ router.post("/create", isLoggedIn, (req, res, next) => {
         name: req.body.name,
         type: req.body.type,
         breed: req.body.breed,
-        country: req.body.country,
+        city: req.body.city,
         gender: req.body.gender,
         user: req.session.user._id,
         favouriteFood: req.body.favouriteFood,
@@ -110,7 +111,7 @@ router.post("/:petId/edit", isLoggedIn, (req, res, next) => {
     const newDetails = {
         name: req.body.name,
         breed: req.body.breed,
-        country: req.body.country,
+        city: req.body.city,
         gender: req.body.gender,
         favouriteFood: req.body.favouriteFood,
         description: req.body.description,

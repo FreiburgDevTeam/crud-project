@@ -13,9 +13,9 @@ const petsSchema = new Schema(
             required: [true, "Type is required"],
         },
         breed: String,
-        country: {
+        city: {
             type: String,
-            required: [true, "Country is required"],
+            required: [true, "City is required"],
         },
         gender: {
             type: String,
