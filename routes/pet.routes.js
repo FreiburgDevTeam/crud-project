@@ -67,11 +67,14 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 });
 
 // READ: display Pet details
-router.get("/:petId", (req, res, next) => {
+router.get("/:petId",(req, res, next) => {
+    
+  
     const id = req.params.petId;
     Pet.findById(id)
         .populate("user")
         .then(petDetails => {
+
             if (!req.session.user){
                 res.render("pets/pet-details", {pet: petDetails})
             } else if (petDetails.user.id === req.session.user._id){
