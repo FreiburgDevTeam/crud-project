@@ -5,12 +5,7 @@
     <h2>{{name}}</h2>
     <ul>
         <li>Breed: {{this.breed}}</li>
-        <li>Country: {{this.country}}</li>
-        <li>Gender: {{this.gender}}</li>
-        <li>Favourite food: {{this.favouritefood}}</li>
         <p>Description: <br>{{description}}</p>
-        <li>Owner: {{user.name}} <button onclick="document.getElementById('{{user._id}}').innerHTML='Email: {{user.email}}<br><br>Telephone:{{user.telephone}}'"> CONTACT </button></li>
-        <p id="{{user._id}}"></p>
     </ul>
     <a href="/pets/{{this.id}}">More details</a>
     <hr>

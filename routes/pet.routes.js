@@ -72,12 +72,14 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 // READ: display Pet details
 router.get("/:petId", (req, res, next) => {
     const id = req.params.petId;
-
+    
     Pet.findById(id)
         .populate("user")
         .then(petDetails => {
-            res.render("pets/pet-details", petDetails);
-        })
+            // if (req.session.user._id == petDetails.user._id) {
+                res.render("pets/pet-details", petDetails)
+            // } else ( res.render("pets/pet-notAnOWner"))
+        }) 
         .catch(err => {
             console.log("error getting pet details from DB", err)
             next(err);
@@ -91,7 +93,7 @@ router.get("/:petId/edit", isLoggedIn, (req, res, next) => {
         .then(petDetails => {
             if (req.session.user._id == petDetails.user._id) {
                 res.render("pets/pet-edit", petDetails);
-            } else( res.render("pets/pet-notAnOWner"))
+            } else (res.render("pets/pet-notAnOWner"))
         })
         .catch(err => {
             console.log("error getting pet details from DB", err)
