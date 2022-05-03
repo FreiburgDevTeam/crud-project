@@ -5,26 +5,24 @@ const Pet = require("../models/Pets.model");
 const User = require("../models/User.model");
 const router = require("./user.routes");
 
-
-
-
 // READ: display list of Pets
 router.get("/", (req, res, next) => {
-
+    if (!req.query){
+        req.query = {}
+    }
     Pet.find(req.query)
         .populate("user")
         .then(petsArr => {
-            res.render("pets/pets-list", { pets: petsArr });
+            res.render("pets/pets-list", { pets: petsArr })
         })
         .catch(err => {
-            console.log("error getting pets from DB", err)
-            next(err);
-        });
+        console.log("error getting pets from DB", err)
+        next(err);
+        })
 });
 
 // create a Pet
-router.get("/create", isLoggedIn, (req, res, next) => {
-    
+router.get("/create", isLoggedIn, (req, res, next) => {  
     User.find(req.session.user)
         .then(userName => {
             res.render("pets/pet-create", {user: userName});
@@ -33,7 +31,7 @@ router.get("/create", isLoggedIn, (req, res, next) => {
             console.log("error getting user from DB", err)
             next(err);
         });    
-})
+});
 
 // process create form
 router.post("/create", isLoggedIn, (req, res, next) => {
@@ -68,7 +66,7 @@ router.post("/create", isLoggedIn, (req, res, next) => {
             next(err);
         });
 
-})
+});
 
 // READ: display Pet details
 router.get("/:petId", (req, res, next) => {
