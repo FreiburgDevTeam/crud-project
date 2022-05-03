@@ -64,6 +64,7 @@ router.post('/edit/:userID', isLoggedIn, (req, res, next) => {
 router.post('/edit/:userID/delete', isLoggedIn, (req, res, next) => {
   const userID = req.params.userID;
     User.findByIdAndRemove(userID)
+    Pet.deleteMany({user: userID })
     .then( () => {
       req.session.destroy((err) => {
         if (err) {
