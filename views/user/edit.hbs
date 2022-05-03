@@ -15,7 +15,10 @@
 
   <label>
     Telephone:
-    <input type="tel" name="telephone" value="{{user.telephone}}" />
+    <input placeholder="123-456-7890" type="tel" id="phone" name="phone"
+       pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+       required>
+       
   </label>
 
   <button>Save changes</button>
