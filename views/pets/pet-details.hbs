@@ -1,24 +1,18 @@
-<h1>{{name}} Details</h1>
-<img src="/images/avatar-pets/{{this.avatar}}" alt="{{this.type}} image profile">
-
-
+<h1>{{pet.name}} Details</h1>
+<img src="/images/avatar-pets/{{pet.avatar}}" alt="{{pet.type}} image profile">
 <ul>
-<li>City: {{city}}</li>
-<li>Gender: {{gender}}</li>
-<li>Favourite food: {{favouriteFood}}</li>
- <li>Owner: {{user.name}} <button onclick="document.getElementById('{{user._id}}').innerHTML='Email: {{user.email}}<br><br>Telephone:{{user.telephone}}'"> CONTACT </button></li>
-        <p id="{{user._id}}"></p>
+<li>City: {{pet.city}}</li>
+<li>Gender: {{pet.gender}}</li>
+<li>Favourite food: {{pet.favouriteFood}}</li>
+<li>Owner: {{pet.user.name}} <button onclick="document.getElementById('{{pet.user._id}}').innerHTML='Email: {{pet.user.email}}<br><br>Telephone:{{pet.user.telephone}}'"> CONTACT </button></li>
+<p id="{{pet.user._id}}"></p>
 </ul>
 
-
-{{#if session.user}}
-<a href="/pets/{{_id}}/edit">Edit</a> <br>
-
-<form action="/pets/{{_id}}/delete" method="POST">
+{{#if isOwner}}
+<a href="/pets/{{pet._id}}/edit">Edit</a>
+<br>
+<form action="/pets/{{pet._id}}/delete" method="POST">
 <button onclick="return confirm('Are you sure you want this pet?')">Delete</button>
 </form>
-<hr>
-{{else}}
 {{/if}}
 <a href="/pets">Back</a>
-

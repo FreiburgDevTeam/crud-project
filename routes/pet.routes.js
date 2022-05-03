@@ -1,5 +1,6 @@
 const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
+const isOwner = require("../middleware/isOwner");
 const { populate } = require("../models/Pets.model");
 const Pet = require("../models/Pets.model");
 const User = require("../models/User.model");
@@ -7,9 +8,6 @@ const router = require("./user.routes");
 
 // READ: display list of Pets
 router.get("/", (req, res, next) => {
-    if (!req.query){
-        req.query = {}
-    }
     Pet.find(req.query)
         .populate("user")
         .then(petsArr => {
@@ -71,28 +69,16 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 // READ: display Pet details
 router.get("/:petId", (req, res, next) => {
     const id = req.params.petId;
-    
     Pet.findById(id)
         .populate("user")
         .then(petDetails => {
-            // if (req.session.user._id == petDetails.user._id) {
-                res.render("pets/pet-details", petDetails)
-            // } else ( res.render("pets/pet-notAnOWner"))
-        }) 
-        .catch(err => {
-            console.log("error getting pet details from DB", err)
-            next(err);
-        });
-});
-
-// Edit pet display form 
-router.get("/:petId/edit", isLoggedIn, (req, res, next) => {
-    const id = req.params.petId;
-    Pet.findById(id)
-        .then(petDetails => {
-            if (req.session.user._id == petDetails.user._id) {
-                res.render("pets/pet-edit", petDetails);
-            } else (res.render("pets/pet-notAnOWner"))
+            if (!req.session.user){
+                res.render("pets/pet-details", {pet: petDetails})
+            } else if (petDetails.user.id === req.session.user._id){
+                res.render("pets/pet-details", {pet: petDetails, isOwner: true})
+            } else {
+                res.render("pets/pet-details", {pet: petDetails, isOwner: false})
+            }
         })
         .catch(err => {
             console.log("error getting pet details from DB", err)
@@ -100,9 +86,21 @@ router.get("/:petId/edit", isLoggedIn, (req, res, next) => {
         });
 });
 
+// Edit pet display form 
+router.get("/:petId/edit", isLoggedIn, isOwner, (req, res, next) => {
+    const id = req.params.petId;
+    Pet.findById(id)
+        .then(petDetails => {
+                res.render("pets/pet-edit", petDetails);
+        })
+        .catch(err => {
+            console.log("error getting pet details from DB", err)
+            next(err);
+        });
+});
 
-// Edit pet form
-router.post("/:petId/edit", isLoggedIn, (req, res, next) => {
+// route to procces the pet form
+router.post("/:petId/edit", isLoggedIn, isOwner, (req, res, next) => {
 
     const id = req.params.petId;
 
@@ -125,9 +123,8 @@ router.post("/:petId/edit", isLoggedIn, (req, res, next) => {
         });
 });
 
-
 // Delete a pet
-router.post("/:petId/delete", isLoggedIn, (req, res, next) => {
+router.post("/:petId/delete", isLoggedIn, isOwner,(req, res, next) => {
 
 
     const id = req.params.petId;
