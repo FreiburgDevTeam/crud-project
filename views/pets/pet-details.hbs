@@ -15,7 +15,7 @@
 <a href="/pets/{{_id}}/edit">Edit</a> <br>
 
 <form action="/pets/{{_id}}/delete" method="POST">
-<button type="submit">Delete</button>
+<button onclick="return confirm('Are you sure you want this pet?')">Delete</button>
 </form>
 <hr>
 {{else}}
