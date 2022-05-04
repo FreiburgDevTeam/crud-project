@@ -1,24 +1,15 @@
-<section class="home">
-    <div class="box">
-        <h1>Welcomme!</h1><br>
-        <p> Enjoy the pet lovers community.<br>
-        Share your pet or find you next best friend near to you.</p>
+<section class="container-box">
+    <div class="box search-bar">
+        <h1> Find your next best friend near to you.</h1>
         <br>
-    <form action="/auth/signup" method="POST">
-        {{#if errorMessage}}
-        <br />
-        <p id="error-form">{{errorMessage}}</p>
-        <br />
-        {{/if}}
-        <label for="name">Name:</label><br>
-        <input type="text" name="name" id="name" placeholder="Name" required /><br>
-        <label for="email">Email:</label><br>
-        <input type="email" name="email" id="email" placeholder="email@mail.com" required /><br>
-        <label for="password">Password:</label><br>
-        <input type="password" name="password" id="password" placeholder="********" required /><br>
-        <button type="submit">SUBMIT</button>
-        <a href="/auth/login">LoggIn</a>
-        <a href="/pets">Continue as a guest</a>
+        <br>
+    <form class="flex-row" action="/pets?{{req.query}}" method="GET">
+    <select name="type" required>
+        <option value="dog" selected>Dog</option>
+        <option value="cat">Cat</option>
+    </select>
+    <input type="text" name="city" placeholder="your city" required>
+    <button type="submit">Search</button>
     </form>
     </div>
 </section>
