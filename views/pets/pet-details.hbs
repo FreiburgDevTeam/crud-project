@@ -1,4 +1,8 @@
+<section class="flex-row pet-details">
+<div>
 <img src="/images/avatar-pets/{{pet.avatar}}" alt="{{pet.type}} image profile">
+</div>
+<div>
 <h1>{{pet.name}}</h1>
 <ul>
 <li>City: {{pet.city}}</li>
@@ -11,11 +15,10 @@
 <li>Owner: {{pet.user.name}} <button onclick="document.getElementById('{{pet.user._id}}').innerHTML='Email: {{pet.user.email}}<br><br>Telephone:{{pet.user.telephone}}'"> CONTACT </button></li>
 <p id="{{pet.user._id}}"></p>
    {{else}}
-        <li>Owner: {{pet.user.name}} <button onclick="document.getElementById('text').innerHTML='To see contact details please consider to Register/Login. ' ">CONTACT</button></li>
+        <li>Owner: {{pet.user.name}} <button onclick="document.getElementById('text').innerHTML='To see contact details please consider to Register/Login.'">CONTACT</button></li>
         <p id="text"></p>
         {{/if}}
 </ul>
-
 {{#if isOwner}}
 <a href="/pets/{{pet._id}}/edit">Edit</a>
 <br>
@@ -23,4 +26,7 @@
 <button onclick="return confirm('Are you sure you want this pet?')">Delete</button>
 </form>
 {{/if}}
+<br>
 <a href="/pets">Back</a>
+</div>
+</section>
