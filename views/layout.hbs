@@ -1,52 +1,47 @@
 <html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Pet Sharing</title>
+  <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="32x32">
+  <link rel="stylesheet" href="/stylesheets/reset.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Pet Sharing</title>
-    <link rel="icon" type="image/png" href="/images/favicon.ico" sizes="32x32">
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
+<body>
+  {{!-- HEADER --}}
+  <header class="flex-row">
+    <div>
+      <a class="logo" href="/">Pet Sharing</a>
+      <a href="/pets">PETS</a>
+    </div>
+    <nav>
+      <ul class="flex-row">
+        {{#if session.user}}
+        <li><a href="/pets/create"> NEW PET </a></li>
+        <li><a href="/user/profile"> MY PROFILE </a></li>
+        <li><a href="/auth/logout"> LOGOUT </a></li>
+        {{else}}
+        <li><a href="/auth/login"> LOGIN </a></li>
+        <li><a href="/auth/signup"> SIGN UP </a></li>
+        {{/if}}
+      </ul>
+    </nav>
+  </header>
+  <hr class="section-line">
 
-  <body>
-    <header>
-      <h1>Pet Sharing</h1>
-      <nav>
-        <ul>
-          <li><a href="/pets"> PETS </a></li>
-        </ul>
-        <ul>
-          {{#if session.user}}
-            <li><a href="/pets/create"> NEW PET </a></li>
-            <li><a href="/user/profile"> MY PROFILE </a></li>
-            <li><a href="/auth/logout"> LOGOUT </a></li>
-          {{else}}
-            <li><a href="/auth/login"> LOGIN </a></li>
-            <li><a href="/auth/signup"> SIGN UP </a></li>
-          {{/if}}
-        </ul>
-      </nav>
-    </header>
-    <br/>
-    <hr/>
-    <br/>
-
+  {{!-- CONTEINER --}}
+  <section class="container">
     {{{body}}}
-
-    <script src="/js/script.js"></script>
-
-<footer>
-  <hr>
- <section>
-   
-      
-      
-        <p><a href="/about">About</a></p>
-
   </section>
- {{!-- <div class="map-frame"><div class="gmap_canvas"><iframe width="400" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=Freiburg&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div> --}}
-   </footer>
-  </body>
+  <hr class="section-line">
+  <script src="/js/script.js"></script>
+  <footer>
+    <section>
+      <p><a href="/about">About</a></p>
+    </section>
+  </footer>
+</body>
 
 </html>

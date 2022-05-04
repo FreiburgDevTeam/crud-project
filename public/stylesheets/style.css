@@ -1,12 +1,72 @@
+html {
+  font-size: 10px;
+}
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 80%;
+  margin: auto;
+  font: 1.6rem "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
 a {
-  color: #00b7ff;
+  color: #6a4791;
+}
+.flex-row {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: center;
 }
 
-h1 {
-  color: 15px;
+/* HEADER */
+header {
+  height: 100px;
+  list-style: none;
+  justify-content:space-between;
+}
+.logo {
+  font-size: 3rem;
+  margin-right: 70px;
+}
+header a {
+  text-decoration: none;
+}
+header nav ul li a {
+  margin-left: 40px;  
+}
+.section-line {
+  height: 5px;
+  background: linear-gradient(135deg,#8964b4,#6a4791);
+}
+
+/* CONTAINER */
+.container {
+  height: auto;
+  margin: 40px 0;
+}
+
+/* HOME PAGE */
+.home {
+  height: auto;
+  display: flex;
+}
+.box{
+  margin: auto;
+  width: max-content;
+  height: max-content;
+  padding: 50px;
+  background-color: #8964b4;
+}
+.box input {
+  width: 100%;
+  height: 5rem;
+  padding: 1rem;
+  margin-bottom: 20px;
+}
+.box button {
+  font-size: 1.7rem;
+  padding: 1.4rem;
+}
+.box h1 {
+  font-size: 3.5rem;
+}
+.box a {
+  margin: 20px;
 }
