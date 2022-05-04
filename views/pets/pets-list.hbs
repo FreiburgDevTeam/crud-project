@@ -1,34 +1,40 @@
-<form action="/pets?{{req.query}}" method="GET">
-    <select name="type" required>
-        <option value="dog" selected>Dog</option>
-        <option value="cat">Cat</option>
-    </select>
-    <input type="text" name="city" placeholder="Search pets in your city" required>
-    <button type="submit">Search</button>
-</form>
-<h1>List of Pets</h1>
-
-{{#each pets}}
-<section>
-    <img src="/images/avatar-pets/{{this.avatar}}" alt="{{this.type}} image profile">
-    <h2>{{this.name}}</h2>
-    <ul>
-        <li>Breed: {{this.breed}}</li>
-        <li>City: {{this.city}}</li>
-        <li>Description: <br>{{this.description}}</li>
-        
-        {{#if ../loggedIn}}
-        <li>Owner: {{user.name}} <button onclick="document.getElementById('{{this._id}}').innerHTML='Email: {{user.email}}<br><br>Telephone:{{user.telephone}}'"> CONTACT </button></li>
-        <p id="{{this._id}}"></p>
-        {{else}}
-        <li>Owner: {{user.name}} <button onclick="document.getElementById('{{this._id}}').innerText='To see contact details please consider to Register/Login' ">CONTACT</button></li>
-        <p id="{{this._id}}"></p>
-        {{/if}}
-        
-    </ul>
-    <a href="/pets/{{this.id}}">More details</a>
-    <hr>
+<section class="filter">
+    <div class="flex-row search-bar">
+        <form action="/pets?{{req.query}}" method="GET">
+            <select name="type" required>
+                <option value="dog" selected>Dog</option>
+                <option value="cat">Cat</option>
+            </select>
+            <input type="text" name="city" placeholder="Where? Introduce your city" required>
+            <button type="submit">Search</button>
+            <a href="/pets">View all</a>
+        </form>
+    </div>
 </section>
-{{/each}}
 
-
+<section class="flex-row pets-list">
+    {{#each pets}}
+    <div class="pet-card">
+        <img src="/images/avatar-pets/{{this.avatar}}" alt="{{this.type}} image profile">
+        <h2 class="name">{{this.name}}</h2>
+        <br>
+        <ul>
+            <li>City: {{this.city}}</li>
+            <li>Description: <br>{{this.description}}</li>
+            {{!-- {{#if ../loggedIn}}
+            <li>Owner: {{user.name}} <button
+                    onclick="document.getElementById('{{this._id}}').innerHTML='Email: {{user.email}}<br><br>Telephone:{{user.telephone}}'">
+                    CONTACT </button></li>
+            <p id="{{this._id}}"></p>
+            {{else}}
+            <li>Owner: {{user.name}} <button
+                    onclick="document.getElementById('{{this._id}}').innerText='To see contact details please consider to Register/Login' ">CONTACT</button>
+            </li>
+            <p id="{{this._id}}"></p>
+            {{/if}} --}}
+        </ul>
+        <br>
+        <a href="/pets/{{this.id}}">More details</a>
+    </div>
+    {{/each}}
+</section>

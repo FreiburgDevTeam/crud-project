@@ -83,11 +83,19 @@ header nav ul li a {
   margin: 20px;
   color: #000;
 }
-.search-bar select, .search-bar button {
+.search-bar form {
+  display: flex;
+  justify-content: center;
+}
+.search-bar{
+  justify-content: center;
+}
+.search-bar select, .search-bar input, .search-bar button, .search-bar a {
 width: max-content;
 height: 5rem;
 padding: 0 20px;
 font-size: 2rem;
+
 }
 .search-bar input {
   width: 400px;
@@ -95,4 +103,33 @@ font-size: 2rem;
 }
 .search-bar h1 {
   color: #fff;
+}
+/* PETS LIST PAGE */
+.filter {
+  margin: 50px 0;
+}
+.pets-list {
+  width: 100%;
+justify-content:space-evenly;
+}
+.pet-card {
+  width: 300px;
+  padding: 20px;
+  margin: 20px;
+  border: 1px solid #6a4791;
+}
+.pet-card img {
+  display: flex;
+  max-width: 200px;
+  margin: auto;
+}
+.pet-card .name {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* FOOTER */
+footer {
+  margin-bottom: 40px;
 }

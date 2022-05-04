@@ -1,9 +1,12 @@
-<h1>{{pet.name}}</h1>
 <img src="/images/avatar-pets/{{pet.avatar}}" alt="{{pet.type}} image profile">
+<h1>{{pet.name}}</h1>
 <ul>
 <li>City: {{pet.city}}</li>
+<li>Description: <br>{{pet.description}}</li>
+<li>Breed: {{pet.breed}}</li>      
 <li>Gender: {{pet.gender}}</li>
 <li>Favourite food: {{pet.favouriteFood}}</li>
+<br>
 {{#if userIn}}
 <li>Owner: {{pet.user.name}} <button onclick="document.getElementById('{{pet.user._id}}').innerHTML='Email: {{pet.user.email}}<br><br>Telephone:{{pet.user.telephone}}'"> CONTACT </button></li>
 <p id="{{pet.user._id}}"></p>
