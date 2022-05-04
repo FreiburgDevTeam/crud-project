@@ -44,15 +44,18 @@ header nav ul li a {
 
 /* HOME PAGE */
 .home {
-  height: auto;
+  height: 100vh;
   display: flex;
+  background-image: url("../images/backgrounds/background-1.jpeg");
+  background-size: cover;
 }
 .box{
   margin: auto;
   width: max-content;
   height: max-content;
   padding: 50px;
-  background-color: #8964b4;
+  background-color: rgba(155, 111, 166, 0.4) ;
+  
 }
 .box input {
   width: 100%;
@@ -63,10 +66,14 @@ header nav ul li a {
 .box button {
   font-size: 1.7rem;
   padding: 1.4rem;
+  background-color: #6a4791;
+  color: #fff;
+  border: 0;
 }
 .box h1 {
   font-size: 3.5rem;
 }
 .box a {
   margin: 20px;
+  color: #fff;
 }
