@@ -46,7 +46,7 @@ header nav ul li a {
 .home {
   height: 100vh;
   display: flex;
-  background-image: url("../images/backgrounds/background-1.jpeg");
+  background-image: url("../images/backgrounds/background-1.jpg");
   background-size: cover;
 }
 .box{
