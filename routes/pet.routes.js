@@ -8,10 +8,15 @@ const router = require("./user.routes");
 
 // READ: display list of Pets
 router.get("/", (req, res, next) => {
+    let loggedIn = false;
+    if (req.session.user){
+        loggedIn = true 
+    } 
+
     Pet.find(req.query)
         .populate("user")
         .then(petsArr => {
-            res.render("pets/pets-list", { pets: petsArr })
+            res.render("pets/pets-list", { pets: petsArr, loggedIn})
         })
         .catch(err => {
         console.log("error getting pets from DB", err)
@@ -69,18 +74,18 @@ router.post("/create", isLoggedIn, (req, res, next) => {
 // READ: display Pet details
 router.get("/:petId",(req, res, next) => {
     
-  
+
     const id = req.params.petId;
     Pet.findById(id)
         .populate("user")
         .then(petDetails => {
 
             if (!req.session.user){
-                res.render("pets/pet-details", {pet: petDetails})
+                res.render("pets/pet-details", {pet: petDetails, userIn: false})
             } else if (petDetails.user.id === req.session.user._id){
-                res.render("pets/pet-details", {pet: petDetails, isOwner: true})
+                res.render("pets/pet-details", {pet: petDetails, isOwner: true, userIn: true})
             } else {
-                res.render("pets/pet-details", {pet: petDetails, isOwner: false})
+                res.render("pets/pet-details", {pet: petDetails, isOwner: false, userIn: true})
             }
         })
         .catch(err => {

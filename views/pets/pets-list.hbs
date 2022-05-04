@@ -7,6 +7,7 @@
     <button type="submit">Search</button>
 </form>
 <h1>List of Pets</h1>
+
 {{#each pets}}
 <section>
     <img src="/images/avatar-pets/{{this.avatar}}" alt="{{this.type}} image profile">
@@ -14,13 +15,20 @@
     <ul>
         <li>Breed: {{this.breed}}</li>
         <li>City: {{this.city}}</li>
-        <li>Gender: {{this.gender}}</li>
-        <li>Favourite food: {{this.favouritefood}}</li>
-        <p>Description: <br>{{this.description}}</p>
-        <li>Owner: {{user.name}} <button onclick="document.getElementById('{{user._id}}').innerHTML='Email: {{user.email}}<br><br>Telephone:{{user.telephone}}'"> CONTACT </button></li>
-        <p id="{{user._id}}"></p>
+        <li>Description: <br>{{this.description}}</li>
+        
+        {{#if ../loggedIn}}
+        <li>Owner: {{user.name}} <button onclick="document.getElementById('{{this._id}}').innerHTML='Email: {{user.email}}<br><br>Telephone:{{user.telephone}}'"> CONTACT </button></li>
+        <p id="{{this._id}}"></p>
+        {{else}}
+        <li>Owner: {{user.name}} <button onclick="document.getElementById('{{this._id}}').innerText='To see contact details please consider to Register/Login' ">CONTACT</button></li>
+        <p id="{{this._id}}"></p>
+        {{/if}}
+        
     </ul>
     <a href="/pets/{{this.id}}">More details</a>
     <hr>
 </section>
 {{/each}}
+
+
