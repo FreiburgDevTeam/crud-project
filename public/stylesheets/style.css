@@ -1,11 +1,14 @@
+
 :root {
   --primary: rgb(0, 65, 102);
   --secondary: #ffa400;
   --tertiary: #009ffd;
   --quaternary: rgb(255, 234, 194);
   --quat-opacity: rgb(255, 234, 194, 0.7);
-
 }
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Fredoka+One&display=swap');
 
 html {
   font-size: 10px;
@@ -13,7 +16,7 @@ html {
 body {
   width: 80%;
   margin: auto;
-  font: 1.6rem "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 1.7rem 'Baloo 2', sans-serif ,"Lucida Grande", Helvetica, Arial;
 }
 a {
   color: var(--primary);
@@ -37,6 +40,13 @@ header {
 .logo {
   font-size: 3rem;
   margin-right: 70px;
+  font-family: 'Fredoka One', cursive;
+  color: #e64c3c;
+}
+.logo img {
+  max-height: 4rem;
+  position: relative;
+  top: 10px;
 }
 header a {
   text-decoration: none;
