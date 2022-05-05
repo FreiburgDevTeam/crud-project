@@ -20,6 +20,18 @@ body {
 a {
   color: var(--primary);
 }
+
+#message-positive {
+border: 1px solid green;
+border-radius: 5px;
+padding: 5px;
+}
+#message-negative {
+  width: max-content;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 10px 15px;
+}
 .flex-row {
   display: flex;
   flex-flow: row wrap;
@@ -165,4 +177,13 @@ footer {
   display: flex; 
   margin: auto;
   width: 100px;
+}
+
+/* PROFILE PAGE */
+.header-options {
+  justify-content: space-between;
+}
+.img-profile{
+  width: 20rem;
+  margin-right: 40px;
 }
