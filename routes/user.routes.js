@@ -11,6 +11,7 @@ require('dotenv').config();
 // middleware to control the access
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
+const isUser = require("../middleware/isUser");
 
 // route GET to display user profile
 router.get('/profile', isLoggedIn, (req, res, next) => {
@@ -26,7 +27,7 @@ router.get('/profile', isLoggedIn, (req, res, next) => {
   });
 
 // route GET to display user form
-router.get('/edit/:userID', isLoggedIn, (req, res, next) => {
+router.get('/edit/:userID', isLoggedIn, isUser, (req, res, next) => {
   const userID = req.params.userID;
   // search user by ID in DB
   User.findById(userID)
@@ -40,7 +41,7 @@ router.get('/edit/:userID', isLoggedIn, (req, res, next) => {
   });
 
 // route POST to udapte user
-router.post('/edit/:userID', isLoggedIn, (req, res, next) => {
+router.post('/edit/:userID', isLoggedIn, isUser, (req, res, next) => {
   const userID = req.params.userID;
   const newDetails = {
     name: req.body.name,
@@ -61,7 +62,7 @@ router.post('/edit/:userID', isLoggedIn, (req, res, next) => {
 })
 
 // route to delete user
-router.post('/edit/:userID/delete', isLoggedIn, (req, res, next) => {
+router.post('/edit/:userID/delete', isLoggedIn, isUser, (req, res, next) => {
   const userID = req.params.userID;
     User.findByIdAndRemove(userID)
     Pet.deleteMany({user: userID })
