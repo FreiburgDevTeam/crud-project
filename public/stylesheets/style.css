@@ -161,3 +161,8 @@ header nav ul li a {
 footer {
   margin-bottom: 40px;
 }
+#footer-about {
+  display: flex; 
+  margin: auto;
+  width: 100px;
+}
