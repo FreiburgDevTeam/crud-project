@@ -5,17 +5,17 @@
 <form action="/user/edit/{{user._id}}" method="POST">
   <label>
     Name:
-    <input type="text" name="name" value="{{user.name}}" />
+    <input type="text" name="name" value="{{user.name}}" required/>
   </label>
 
   <label>
     email:
-    <input type="email" name="email" value="{{user.email}}" />
+    <input type="email" name="email" value="{{user.email}}" required/>
   </label>
 
   <label>
     Telephone:
-    <input type="tel" name="telephone" value="{{user.telephone}}" placeholder="333 22 333" pattern="[0-9]{3}[0-9]{2}[0-9]{3}"/>   
+    <input type="tel" name="telephone" value="{{user.telephone}}" placeholder="33322333" pattern="[0-9]{3}[0-9]{2}[0-9]{3}"/>   
   </label>
 
   <button>Save changes</button>
