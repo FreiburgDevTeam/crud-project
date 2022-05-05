@@ -7,11 +7,14 @@
             </select>
             <input type="text" name="city" placeholder="Where? Introduce your city" required>
             <button type="submit">Search</button>
+            
             <a href="/pets">View all</a>
         </form>
     </div>
 </section>
-
+      {{#if result}}
+            <h1 style="text-align: center;" id="no-pet-found">It seems there are no available pets in your selected city!</h1>
+            {{/if}}
 <section class="flex-row pets-list">
     {{#each pets}}
     <div class="pet-card">

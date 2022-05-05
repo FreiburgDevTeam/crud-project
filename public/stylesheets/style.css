@@ -166,3 +166,23 @@ footer {
   margin: auto;
   width: 100px;
 }
+#about-petsharing {
+
+}
+#about-team {
+ display: flex;
+ flex-direction: row;
+ margin: auto;
+}
+.img-team {
+  width: 20rem;
+  height: auto;
+  border-radius: 50%;
+}
+#web-dev-team {
+  justify-content: center;
+  margin: auto;
+}
+.no-pet-found {
+  
+}
