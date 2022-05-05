@@ -124,6 +124,7 @@ router.post("/:petId/edit", isLoggedIn, isOwner, (req, res, next) => {
     const newDetails = {
         name: req.body.name,
         breed: req.body.breed,
+        type: req.body.type,
         city: req.body.city,
         gender: req.body.gender,
         favouriteFood: req.body.favouriteFood,

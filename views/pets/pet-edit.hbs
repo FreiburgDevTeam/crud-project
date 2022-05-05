@@ -1,41 +1,39 @@
-
-<h2>Edit {{name}}</h2>
+<h1>Edit your profile</h1>
 
 <form action="/pets/{{_id}}/edit" method="POST">
-  <label> Name:
-    <input type="text" name="name" value="{{name}}" />
-  </label>
+  <label for="name">Name:</label>
+  <br />
+  <input type="text" name="name" id="name" value="{{name}}" />
+  <br />
 
-    <p>Type: {{type}}</p>
+  <label for="type">Type:</label>
+  <input type="radio" id="type" name="type" value="dog" />Dog
+  <input type="radio" id="type" name="type" value="cat" />Cat
+  <br />
 
-  <label> Breed:
-    <input type="text" name="breed" value="{{breed}}" /> <br>
-  </label>
+  <label for="breed">Breed:</label>
+  <br />
+  <input type="text" id="breed" name="breed" value="{{breed}}" />
+  <br />
+  
+  <label for="city">City:</label><br />
+  <input type="text" id="city" name="city" value="{{city}}" />
+  <br />
 
-  <label> City:
-    <input type="text" name="city" value="{{city}}" /> <br>
-  </label>
+  <label for="gender">Gender:</label>
+  <input type="radio" id="gender" name="gender" value="male" />Male
+  <input type="radio" id="gender" name="gender" value="female" />Female
+  <br />
 
-  <label>
-    Gender:
-    <select name="gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option> 
-    </select>
-  </label>
+  <label for="favouriteFood">Favourite Food:</label><br />
+  <input type="text" id="favouriteFood" name="favouriteFood" value="{{favouriteFood}}" />
+  <br />
 
-    <br>
-   
-  <label> Favourite Food:
-    <input type="text" name="favouriteFood" value="{{favouriteFood}}" /> <br>
-  </label>
-
-   <label> Description: <br>
-    <textarea type="text" name="description" cols="40" rows="8" minlength="20" maxlength="50"> {{description}}
-    </textarea>
-  </label><br>
-
-  <button>Save changes</button>
+  <label for="description">Description:</label><br />
+  <textarea id="description" name="description" rows="4" cols="50" minlength="5" maxlength="50">{{description}}</textarea>
+  <br />
   <br>
+  <button class="crud-button">Save changes</button>
+  <br />
   <a href="/pets/{{this._id}}">Back</a>
 </form>
