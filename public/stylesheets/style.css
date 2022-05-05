@@ -48,6 +48,7 @@ h2 {
   display: flex;
   flex-flow: row wrap;
   align-content: center;
+  
 }
 
 .flex-column {
@@ -182,6 +183,11 @@ header nav ul li a {
   margin: 20px;
   border: 2px solid var(--primary);
   background-color: var(--quat-opacity);
+}
+.grow:hover {
+        -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+        transform: scale(1.3);
 }
 
 .pet-card img {
