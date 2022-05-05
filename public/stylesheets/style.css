@@ -159,6 +159,12 @@ header nav ul li a {
   text-align: center;
   font-weight: 600;
 }
+.no-search-result {
+  width: max-content;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 10px 15px;
+}
 
 /* PET DETAILS PAGE */
 .pet-details {
@@ -178,26 +184,16 @@ footer {
   margin: auto;
   width: 100px;
 }
-
-#about-petsharing {
-
-}
-#about-team {
- display: flex;
- flex-direction: row;
- margin: auto;
-}
+/* About PAGE */
 .img-team {
   width: 20rem;
   height: auto;
   border-radius: 50%;
-}
-#web-dev-team {
-  justify-content: center;
-  margin: auto;
-}
-.no-pet-found {
   
+}
+.web-dev-team {
+  justify-content: space-evenly;
+}
 /* PROFILE PAGE */
 .header-options {
   justify-content: space-between;

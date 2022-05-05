@@ -16,13 +16,17 @@ router.get("/", (req, res, next) => {
     Pet.find(req.query)
         .populate("user")
         .then(petsArr => {
-            if (petsArr.length === 0 ) {
-                res.render("pets/pets-list", { pets: petsArr, loggedIn, result: true})   
-            } else {
-                res.render("pets/pets-list", { pets: petsArr, loggedIn, result: false}) 
-            }
-            
+            Pet.find()
+                .then((allPets) => {
+                    if (petsArr.length === 0 ) {
+                        res.render("pets/pets-all-pets", { pets: petsArr, loggedIn, result: true, allPets: allPets})   
+                      } 
+                      else {
+                          res.render("pets/pets-list", { pets: petsArr, loggedIn, result: false}) 
+                      }
+                })
         })
+         
         .catch(err => {
         console.log("error getting pets from DB", err)
         next(err);
