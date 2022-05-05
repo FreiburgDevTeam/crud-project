@@ -12,59 +12,78 @@
 html {
   font-size: 10px;
 }
+
 body {
   width: 80%;
   margin: auto;
-  font: 1.7rem 'Baloo 2', sans-serif ,"Lucida Grande", Helvetica, Arial;
+  font: 1.7rem 'Baloo 2', sans-serif, "Lucida Grande", Helvetica, Arial;
 }
+
 a {
   color: var(--primary);
 }
 
-#message-positive {
-border: 1px solid green;
-border-radius: 5px;
-padding: 5px;
+h1 {
+  font-size: 3rem;
 }
+
+h2 {
+  font-size: 2rem;
+}
+
+#message-positive {
+  border: 1px solid green;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 #message-negative {
   width: max-content;
   border: 1px solid red;
   border-radius: 10px;
   padding: 10px 15px;
 }
+
 .flex-row {
   display: flex;
   flex-flow: row wrap;
   align-content: center;
 }
+
 .flex-column {
   display: flex;
-  flex-flow:column;
+  flex-flow: column;
   align-content: center;
 }
+
 /* HEADER */
 header {
   padding-top: 30px;
   list-style: none;
-  justify-content:space-between;
+  justify-content: space-between;
 }
+
 .logo {
   font-size: 3rem;
   margin-right: 70px;
-  font-family: 'Fredoka One', sans-serif ,"Lucida Grande", Helvetica, Arial;
+  font-family: 'Fredoka One', sans-serif, "Lucida Grande", Helvetica, Arial;
   color: var(--primary);
 }
+
 .logo img {
   max-height: 4rem;
   position: relative;
   top: 10px;
 }
+
 header a {
   text-decoration: none;
 }
+
 header nav ul li a {
-  margin-left: 40px;  
+  margin-left: 40px;
 }
+
 .section-line {
   height: 5px;
   background: linear-gradient(135deg, #004166, #009ffd);
@@ -84,7 +103,8 @@ header nav ul li a {
   background-image: url("../images/backgrounds/background-1.jpg");
   background-size: cover;
 }
-.box{
+
+.box {
   margin: auto;
   width: max-content;
   height: max-content;
@@ -92,6 +112,7 @@ header nav ul li a {
   background-color: var(--quat-opacity);
   color: var(--primary);
 }
+
 .box input {
   width: 100%;
   height: 5rem;
@@ -99,6 +120,7 @@ header nav ul li a {
   margin-bottom: 20px;
   font-size: 1.7rem;
 }
+
 .box button {
   font-size: 1.7rem;
   padding: 1.4rem;
@@ -106,30 +128,40 @@ header nav ul li a {
   color: var(--tertiary);
   border: 0;
 }
+
 .box h1 {
   font-size: 3.5rem;
 }
+
 .box a {
   margin: 20px;
   color: #000;
 }
+
 .search-bar form {
   display: flex;
   justify-content: center;
 }
-.search-bar{
+
+.search-bar {
   justify-content: center;
 }
-.search-bar select, .search-bar input, .search-bar button, .search-bar a {
+
+.search-bar select,
+.search-bar input,
+.search-bar button,
+.search-bar a {
   width: max-content;
   height: 5rem;
   padding: 0 20px;
   font-size: 2rem;
 }
+
 .search-bar input {
   width: 400px;
   font-size: 2rem;
 }
+
 .search-bar h1 {
   color: var(--primary);
 }
@@ -138,10 +170,12 @@ header nav ul li a {
 .filter {
   margin: 50px 0;
 }
+
 .pets-list {
   width: 100%;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
 }
+
 .pet-card {
   width: 300px;
   padding: 20px;
@@ -149,11 +183,13 @@ header nav ul li a {
   border: 2px solid var(--primary);
   background-color: var(--quat-opacity);
 }
+
 .pet-card img {
   display: flex;
   max-width: 200px;
   margin: auto;
 }
+
 .pet-card .name {
   font-size: 2rem;
   text-align: center;
@@ -168,9 +204,10 @@ header nav ul li a {
 
 /* PET DETAILS PAGE */
 .pet-details {
-  justify-content:center;
+  justify-content: center;
   align-items: center;
 }
+
 .pet-details div {
   margin: 50px 30px;
 }
@@ -179,12 +216,22 @@ header nav ul li a {
 footer {
   margin-bottom: 40px;
 }
+
 #footer-about {
-  display: flex; 
+  display: flex;
   margin: auto;
   width: 100px;
 }
+
 /* About PAGE */
+#about-petsharing {}
+
+#about-team {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
+
 .img-team {
   width: 20rem;
   height: auto;
@@ -194,11 +241,39 @@ footer {
 .web-dev-team {
   justify-content: space-evenly;
 }
+
 /* PROFILE PAGE */
-.header-options {
-  justify-content: space-between;
+.header-options h2 {
+  margin-right: 20px;
 }
-.img-profile{
+
+.img-profile {
   width: 20rem;
-  margin-right: 40px;
+  margin: 0 40px;
+}
+
+.account-section {
+  margin-bottom: 40px;
+}
+
+.crud-button {
+  margin-right: 10px;
+  border-style: none;
+  width: fit-content;
+  height: 10px;
+  padding: 15px;
+  background-color: var(--primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.pet-profile {
+  text-align: center;
 }

@@ -5,16 +5,15 @@
     <br>
     {{#if session.user.telephone}}
     {{else}}
-    <p id="message-negative">Your profile page is incomplete, please update your personal information <a
-        href="/user/edit/{{session.user._id}}">here</a>.</p>
+    <p id="message-negative">Your profile is incomplete, please <a href="/user/edit/{{session.user._id}}">update</a> your information.</p>
     <br>
     {{/if}}
   </header>
   <section class="flex-column">
     <div class="account-section">
       <div class="flex-row header-options">
-        <h3>Account details</h3>
-        <a href="/user/edit/{{session.user._id}}">EDIT</a>
+        <h2>Account details</h2>
+        <a class="crud-button" href="/user/edit/{{session.user._id}}">Edit</a>
       </div>
       <hr>
       <br>
@@ -30,32 +29,33 @@
 
     <div>
       <div class="flex-row header-options">
-      <h3>My Pets</h3>
-      <a href="/pets/create">NEW PET</a>
+        <h2>My Pets</h2> 
+        <a class="crud-button" href="/pets/create">+ Add</a>
       </div>
       <hr>
       <br>
       {{#each pets}}
       <div class="flex-row">
-        <div>
-        <img class="img-profile"src="/images/avatar-pets/{{this.avatar}}" alt="{{this.type}} image profile">
-        <h2 class="name">{{this.name}}</h2>
+        <div class="pet-profile">
+          <img class="img-profile" src="/images/avatar-pets/{{this.avatar}}" alt="{{this.type}} image profile">
+          <h2>{{this.name}}</h2>
         </div>
-        <br>
         <div>
-        <ul>
-          <li>City: {{this.city}}</li>
-          <li>Description: <br>{{this.description}}</li>
-          <li>Type: {{this.type}}</li>
-          <li>Breed: {{this.breed}}</li>
-          <li>Gender: {{this.gender}}</li>
-          <li>Favourite food: {{this.favouriteFood}}</li>
-        </ul>
-        <br>
-        <a href="/pets/{{this._id}}/edit">Edit Pet</a>
-        <form action="/pets/{{this._id}}/delete" method="POST">
-          <button onclick="return confirm('Are you sure you want this pet?')">Delete</button>
-        </form>
+          <ul>
+            <li>City: {{this.city}}</li>
+            <li>Description: <br>{{this.description}}</li>
+            <li>Type: {{this.type}}</li>
+            <li>Breed: {{this.breed}}</li>
+            <li>Gender: {{this.gender}}</li>
+            <li>Favourite food: {{this.favouriteFood}}</li>
+          </ul>
+          <br>
+          <div class="flex-row">
+            <a class="crud-button" href="/pets/{{this._id}}/edit">Edit</a>
+            <form action="/pets/{{this._id}}/delete" method="POST">
+              <button class="crud-button" onclick="return confirm('Are you sure you want this pet?')">Delete</button>
+            </form>
+          </div>
         </div>
       </div>
       {{/each}}
