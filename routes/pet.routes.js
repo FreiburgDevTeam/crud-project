@@ -12,11 +12,16 @@ router.get("/", (req, res, next) => {
     if (req.session.user){
         loggedIn = true 
     } 
-
+    
     Pet.find(req.query)
         .populate("user")
         .then(petsArr => {
-            res.render("pets/pets-list", { pets: petsArr, loggedIn})
+            if (petsArr.length === 0 ) {
+                res.render("pets/pets-list", { pets: petsArr, loggedIn, result: true})   
+            } else {
+                res.render("pets/pets-list", { pets: petsArr, loggedIn, result: false}) 
+            }
+            
         })
         .catch(err => {
         console.log("error getting pets from DB", err)
