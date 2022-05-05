@@ -195,6 +195,12 @@ header nav ul li a {
   text-align: center;
   font-weight: 600;
 }
+.no-search-result {
+  width: max-content;
+  border: 1px solid red;
+  border-radius: 10px;
+  padding: 10px 15px;
+}
 
 /* PET DETAILS PAGE */
 .pet-details {
@@ -217,6 +223,7 @@ footer {
   width: 100px;
 }
 
+/* About PAGE */
 #about-petsharing {}
 
 #about-team {
@@ -229,11 +236,10 @@ footer {
   width: 20rem;
   height: auto;
   border-radius: 50%;
+  
 }
-
-#web-dev-team {
-  justify-content: center;
-  margin: auto;
+.web-dev-team {
+  justify-content: space-evenly;
 }
 
 /* PROFILE PAGE */

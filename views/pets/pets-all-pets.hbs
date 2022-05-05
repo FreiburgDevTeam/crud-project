@@ -16,7 +16,7 @@
             <h1 style="text-align: center;" class="no-search-result">It seems there are no available pets in your selected city!</h1>
             {{/if}}
 <section class="flex-row pets-list">
-    {{#each pets}}
+    {{#each allPets}}
     <div class="pet-card">
         <img src="/images/avatar-pets/{{this.avatar}}" alt="{{this.type}} image profile">
         <h2 class="name">{{this.name}}</h2>
