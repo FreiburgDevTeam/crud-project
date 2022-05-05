@@ -9,12 +9,13 @@
             <button type="submit">Search</button>
             
             <a href="/pets">View all</a>
-        </form>
+        </form>  
+              {{#if result}}
+            <h1 class="filter">It seems there are no available pets in your selected city!</h1>
+            {{/if}}
     </div>
 </section>
-      {{#if result}}
-            <h1 style="text-align: center;" class="no-search-result">It seems there are no available pets in your selected city!</h1>
-            {{/if}}
+  
 <section class="flex-row pets-list">
     {{#each pets}}
     <div class="pet-card">
