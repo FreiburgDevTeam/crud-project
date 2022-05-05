@@ -1,9 +1,15 @@
-/* FONTS */
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Fredoka+One&display=swap');
 
 :root {
   --primary: rgb(0, 65, 102);
+  --secondary: #ffa400;
+  --tertiary: #009ffd;
+  --quaternary: rgb(255, 234, 194);
+  --quat-opacity: rgb(255, 234, 194, 0.7);
 }
+
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Fredoka+One&display=swap');
+
 html {
   font-size: 10px;
 }
@@ -13,7 +19,7 @@ body {
   font: 1.7rem 'Baloo 2', sans-serif ,"Lucida Grande", Helvetica, Arial;
 }
 a {
-  color: #6a4791;
+  color: var(--primary);
 }
 .flex-row {
   display: flex;
@@ -50,13 +56,14 @@ header nav ul li a {
 }
 .section-line {
   height: 5px;
-  background: linear-gradient(135deg,#8964b4,#6a4791);
+  background: linear-gradient(135deg, #004166, #009ffd);
   margin: 20px 0;
 }
 
 /* CONTAINER */
 .container {
   height: auto;
+  /* background-color: var(--quat-opacity); */
 }
 
 /* HOME PAGE */
@@ -71,9 +78,8 @@ header nav ul li a {
   width: max-content;
   height: max-content;
   padding: 50px;
-  background-color: rgba(155, 111, 166, 0.7);
-  color: #fff;
-  
+  background-color: var(--quat-opacity);
+  color: var(--primary);
 }
 .box input {
   width: 100%;
@@ -85,8 +91,8 @@ header nav ul li a {
 .box button {
   font-size: 1.7rem;
   padding: 1.4rem;
-  background-color: #6a4791;
-  color: #fff;
+  background-color: var(--primary);
+  color: var(--tertiary);
   border: 0;
 }
 .box h1 {
@@ -108,7 +114,6 @@ width: max-content;
 height: 5rem;
 padding: 0 20px;
 font-size: 2rem;
-
 }
 .search-bar input {
   width: 400px;
@@ -117,6 +122,7 @@ font-size: 2rem;
 .search-bar h1 {
   color: #fff;
 }
+
 /* PETS LIST PAGE */
 .filter {
   margin: 50px 0;
@@ -129,7 +135,8 @@ justify-content:space-evenly;
   width: 300px;
   padding: 20px;
   margin: 20px;
-  border: 1px solid #6a4791;
+  border: 2px solid var(--primary);
+  background-color: var(--quat-opacity);
 }
 .pet-card img {
   display: flex;
@@ -141,6 +148,7 @@ justify-content:space-evenly;
   text-align: center;
   font-weight: 600;
 }
+
 /* PET DETAILS PAGE */
 .pet-details {
   justify-content:center;
@@ -151,6 +159,6 @@ justify-content:space-evenly;
 }
 
 /* FOOTER */
-footer {
+#footer-container {
   margin-bottom: 40px;
 }
