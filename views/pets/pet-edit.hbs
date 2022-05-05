@@ -1,9 +1,11 @@
-<h1>Edit your profile</h1>
-
+<a href="/pets/{{this._id}}">Back</a>
+<section class="container-form" >
+  <h1>Edit pet information</h1>
+  <br>
 <form action="/pets/{{_id}}/edit" method="POST">
   <label for="name">Name:</label>
   <br />
-  <input type="text" name="name" id="name" value="{{name}}" />
+  <input class="input-form" type="text" name="name" id="name" value="{{name}}" />
   <br />
 
   <label for="type">Type:</label>
@@ -13,11 +15,11 @@
 
   <label for="breed">Breed:</label>
   <br />
-  <input type="text" id="breed" name="breed" value="{{breed}}" />
+  <input class="input-form" type="text" id="breed" name="breed" value="{{breed}}" />
   <br />
   
   <label for="city">City:</label><br />
-  <input type="text" id="city" name="city" value="{{city}}" />
+  <input class="input-form" type="text" id="city" name="city" value="{{city}}" />
   <br />
 
   <label for="gender">Gender:</label>
@@ -26,14 +28,15 @@
   <br />
 
   <label for="favouriteFood">Favourite Food:</label><br />
-  <input type="text" id="favouriteFood" name="favouriteFood" value="{{favouriteFood}}" />
+  <input class="input-form" type="text" id="favouriteFood" name="favouriteFood" value="{{favouriteFood}}" />
   <br />
 
   <label for="description">Description:</label><br />
-  <textarea id="description" name="description" rows="4" cols="50" minlength="5" maxlength="50">{{description}}</textarea>
+  <textarea class="input-form" id="description" name="description" rows="4" cols="50" minlength="5" maxlength="50">{{description}}</textarea>
   <br />
   <br>
+  <div class="flex-row flex-end">
   <button class="crud-button">Save changes</button>
-  <br />
-  <a href="/pets/{{this._id}}">Back</a>
+  </div>
 </form>
+</section>

@@ -284,3 +284,28 @@ footer {
 .pet-profile {
   text-align: center;
 }
+.container-form{
+  width: max-content;
+  margin: auto;
+
+}
+.container-form h1 {
+  text-align: center;
+}
+.container-form form {
+  padding: 40px;
+  background-color: var(--quat-opacity);
+  border-radius: 20px;
+}
+.container-form input, .default-form textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 1.7rem;
+}
+.input-form {
+  width: 400px;
+}
+.flex-end {
+justify-content: flex-end;
+}
+
