@@ -1,5 +1,6 @@
 <section class="filter">
     <div class="flex-row search-bar">
+         
         <form action="/pets?{{req.query}}" method="GET">
             <select name="type" required>
                 <option value="dog" selected>Dog</option>
@@ -10,11 +11,16 @@
             
             <a href="/pets">View all</a>
         </form>
-    </div>
+    </div> 
 </section>
-      {{#if result}}
-            <h1 style="text-align: center;" class="no-search-result">It seems there are no available pets in your selected city!</h1>
+<div class="filter">
+    <div class="flex-row search-bar">
+          {{#if result}}
+            <h1  class="no-search-result">It seems there are no available pets in your selected city!</h1>
             {{/if}}
+    </div>
+</div>
+  
 <section class="flex-row pets-list">
     {{#each allPets}}
     <div class="pet-card">
