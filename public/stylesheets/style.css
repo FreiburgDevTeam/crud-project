@@ -224,22 +224,29 @@ footer {
 }
 
 /* About PAGE */
-#about-petsharing {}
-
-#about-team {
-  display: flex;
-  flex-direction: row;
-  margin: auto;
-}
-
 .img-team {
   width: 20rem;
   height: auto;
   border-radius: 50%;
+  padding: 10px 10px;
   
+}
+.github-link {
+  display: flex;
+  margin-left: 0% !important;
+  padding-left: 0% !important; 
 }
 .web-dev-team {
   justify-content: space-evenly;
+}
+.team-details {
+  text-align: center;
+}
+.box-about {
+  margin: auto;
+  width: max-content;
+  height: max-content;
+  padding: 10px;
 }
 
 /* PROFILE PAGE */
