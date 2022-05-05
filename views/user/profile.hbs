@@ -1,45 +1,68 @@
-<header>
-  <h1>Profile Page</h1>
-  <br>
-  {{#if session.user}}
-  <h2>Welcome {{session.user.name}}!</h2>
-  <br>
-</header>
-<section>
-  <div>
-    <h3>Account details</h3>
-    <a href="/user/edit/{{session.user._id}}">Edit</a>
-  </div>
-  <hr>
-  <br>
-  <div>
-    <img src="/images/{{session.user.avatar}}" alt="{{session.user.name}} profile image">
-    <div>
-      <p>Name: {{session.user.name}}</p>
-      <p>Email: {{session.user.email}}</p>
-      <p>Tel.: {{session.user.telephone}}</p>
+<div class="profile-section">
+  <header>
+    {{#if session.user}}
+    <h2>Welcome {{session.user.name}}!</h2>
+    <br>
+    {{#if session.user.telephone}}
+    {{else}}
+    <p>Your profile page is incomplete, please update your personal information <a
+        href="/user/edit/{{session.user._id}}">here</a>.</p>
+    <br>
+    {{/if}}
+  </header>
+  <section class="flex-column">
+    <div class="account-section">
+      <div class="flex-row">
+        <h3>Account details</h3>
+        <a href="/user/edit/{{session.user._id}}">EDIT</a>
+      </div>
+      <hr>
+      <br>
+      <div class="flex-row">
+        <img src="/images/{{session.user.avatar}}" alt="{{session.user.name}} profile image">
+        <div>
+          <p>Name: {{session.user.name}}</p>
+          <p>Email: {{session.user.email}}</p>
+          <p>Tel.: {{session.user.telephone}}</p>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<section>
-    <h3>My Pets</h3>
-  <hr>
-  <br>
-  {{#each pets}}
-  <div>
-    <img src="/images/avatar-pets/{{this.avatar}}" alt="{{this.name}} profile image">
     <div>
-      <p>Name: {{this.name}}</p>
-      <p>Type: {{this.type}}</p>
-      <p>Breed: {{this.breed}}</p>
-      <a href="/pets/{{this._id}}/edit">Edit Pet</a>
+      <div class="flex-row">
+      <h3>My Pets</h3>
+      <a href="/pets/create">NEW PET</a>
+      </div>
+      <hr>
+      <br>
+      {{#each pets}}
+      <div class="flex-row">
+        <div>
+        <img src="/images/avatar-pets/{{this.avatar}}" alt="{{this.type}} image profile">
+        <h2 class="name">{{this.name}}</h2>
+        </div>
+        <br>
+        <div>
+        <ul>
+          <li>City: {{this.city}}</li>
+          <li>Description: <br>{{this.description}}</li>
+          <li>Type: {{this.type}}</li>
+          <li>Breed: {{this.breed}}</li>
+          <li>Gender: {{this.gender}}</li>
+          <li>Favourite food: {{this.favouriteFood}}</li>
+        </ul>
+        <br>
+        <a href="/pets/{{this._id}}/edit">Edit Pet</a>
+        <form action="/pets/{{this._id}}/delete" method="POST">
+          <button onclick="return confirm('Are you sure you want this pet?')">Delete</button>
+        </form>
+        </div>
+      </div>
+      {{/each}}
     </div>
-  </div>
-  <br>
-  {{/each}}
-</section>
+  </section>
 
-{{else}}
-<p>Please login to see your profile page</p>
-{{/if}}
+  {{else}}
+  <p>Please login to see your profile page</p>
+  {{/if}}
+</div>
