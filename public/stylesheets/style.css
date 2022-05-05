@@ -158,6 +158,11 @@ header nav ul li a {
 }
 
 /* FOOTER */
-#footer-container {
+footer {
   margin-bottom: 40px;
+}
+#footer-about {
+  display: flex; 
+  margin: auto;
+  width: 100px;
 }
