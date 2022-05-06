@@ -42,7 +42,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
     if (found) {
       return res
         .status(400)
-        .render("auth.signup", { errorMessage: "There is already an account with this email. Please LogIn!" });
+        .render("auth/signup", { errorMessage: "There is already an account with this email. Please LogIn!" });
     }
 
     // if email is unique hash the password
