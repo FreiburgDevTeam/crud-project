@@ -1,9 +1,41 @@
 # PetSharing
 
 ## Description
+
+PetSharing allows you to find pets in your city or share your pet with locals when you need it.
+This web applicacion implement CRUD functionality for pets and also for users.
 ![petsharing demo](./public/images/petsharing-demo.png)
 
-Behind our website is a simple idea, sometimes you feel lonely or have no motivation about doing anything. We have the solution. >The Petcompany< brings you happiness, inspiration, and a whole lot more, just go on our website register, contact an owner, and enjoy the time with your favorite pet.
+## Built With
+
+* Express.js
+* Handelbars
+* MongoDB
+* JavaScript
+* HTML
+* CSS
+
+## Getting Started
+
+
+## Install NPM packages
+npm install <packages>
+packages:
+ bcrypt: "^5.0.1",
+ connect-mongo: "^4.6.0",
+ cookie-parser: "^1.4.6",
+ dotenv: "^16.0.0",
+ express: "^4.18.1",
+ express-session: "^1.17.2",
+ hbs: "^4.2.0",
+ mongoose: "^6.3.1",
+ morgan: "^1.10.0",
+ serve-favicon: "^2.5.0"
+
+Update your environment variables:
+PORT=
+SESS_SECRET=""
+SALT_ROUNDS=
 
 ## Developer-Team
 
