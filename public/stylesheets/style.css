@@ -7,7 +7,7 @@
   --tertiary: #009ffd;
   --quaternary: rgb(255, 234, 194);
   --quat-opacity: rgb(255, 234, 194, 0.7);
-  --prim-opacity: rgb(0, 65, 102, 0.7);
+  --prim-opacity: rgb(0, 65, 102, 0.5);
 }
 
 html {
@@ -201,9 +201,9 @@ margin-top: 80px;
   background-color: var(--quat-opacity);
 }
 .grow:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
+  -webkit-transform: scale(1.01);
+  -ms-transform: scale(1.01);
+  transform: scale(1.01);
 }
 
 .pet-card img {
