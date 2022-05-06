@@ -1,13 +1,13 @@
 <section class="container-box">
-    <div class="box search-bar">
+    <div class="box">
         <h1> Find your next best friend near to you.</h1>
         <br>
-    <form class="flex-row" action="/pets?{{req.query}}" method="GET">
+    <form class="flex-row search-bar" action="/pets?{{req.query}}" method="GET">
     <select name="type" required>
         <option value="dog" selected>Dog</option>
         <option value="cat">Cat</option>
     </select>
-    <input type="text" name="city" placeholder="Where? Introduce your city" required>
+    <input type="text" name="city" placeholder="your city" required>
     <button type="submit">Search</button>
     </form>
     </div>

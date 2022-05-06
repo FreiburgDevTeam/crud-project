@@ -144,11 +144,11 @@ header li {
   font-size: 1.7rem;
 }
 
-.box button {
+.box button, .search-bar button {
   font-size: 1.7rem;
   padding: 1.4rem;
   background-color: var(--primary);
-  color: var(--tertiary);
+  color: #fff;
   border: 0;
   border-radius: 10px;
 }
@@ -160,15 +160,6 @@ header li {
 .box a {
   margin: 20px;
   color: #000;
-}
-
-.search-bar form {
-  display: flex;
-  justify-content: center;
-}
-
-.search-bar {
-  justify-content: center;
 }
 
 .search-bar select,
@@ -204,14 +195,16 @@ header li {
 .pet-card {
   width: 300px;
   padding: 20px;
-  margin: 20px;
-  border: 2px solid var(--primary);
+  margin: 20px 10px;
+  border-radius: 20px;
   background-color: var(--quat-opacity);
+  box-shadow: 2px 2px 1px var(--prim-opacity);
+  text-align:justify;
 }
 .grow:hover {
-  -webkit-transform: scale(1.01);
-  -ms-transform: scale(1.01);
-  transform: scale(1.01);
+  -webkit-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  transform: scale(1.02);
 }
 
 .pet-card img {
@@ -224,12 +217,6 @@ header li {
   font-size: 2rem;
   text-align: center;
   font-weight: 600;
-}
-.no-search-result {
-  width: max-content;
-  border: 1px solid red;
-  border-radius: 10px;
-  padding: 10px 15px;
 }
 
 /* PET DETAILS PAGE */

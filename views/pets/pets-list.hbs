@@ -1,12 +1,12 @@
 <section>
 <section class="filter">
-    <div class="flex-row search-bar">
-        <form action="/pets?{{req.query}}" method="GET">
+    <div class="flex-row flex-center">
+        <form class="flex-row search-bar" action="/pets?{{req.query}}" method="GET">
             <select name="type" required>
                 <option value="dog" selected>Dog</option>
                 <option value="cat">Cat</option>
             </select>
-            <input type="text" name="city" placeholder="Where? Introduce your city" required>
+            <input type="text" name="city" placeholder="your city" required>
             <button type="submit">Search</button>
 
             <a href="/pets">View all</a>
@@ -26,11 +26,16 @@
         <h2 class="name">{{this.name}}</h2>
         <br>
         <ul>
-            <li>City: {{this.city}}</li>
-            <li>Description: <br>{{this.description}}</li>
+            <li>City:</li>
+            <li><p>{{this.city}}</p></li>
+            <li>Description:</li>
+            <li><p>{{this.description}}</p></li>
         </ul>
         <br>
-        <a href="/pets/{{this.id}}">More details</a>
+        <div class="flex-row flex-center">
+            <a class="crud-button" href="/pets/{{this.id}}">+ More details</a>
+        </div>
+        
     </div>
     {{/each}}
 </section>
