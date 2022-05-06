@@ -23,6 +23,7 @@ body {
 
 a {
   color: var(--primary);
+  font-size: larger;
 }
 
 h1 {

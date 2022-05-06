@@ -21,13 +21,20 @@
         {{/if}}
 </ul>
 {{#if isOwner}}
+<br>
 <a href="/pets/{{pet._id}}/edit">Edit</a>
+<br>
 <br>
 <form action="/pets/{{pet._id}}/delete" method="POST">
 <button class="crud-button" onclick="return confirm('Are you sure you want this pet?')">Delete</button>
 </form>
 {{/if}}
 <br>
-<a href="/pets">Back</a>
+
 </div>
 </section>
+<div class="search-bar">
+    <div class="box-about"> 
+        <a href="/pets">Back</a>
+    </div>
+</div>
