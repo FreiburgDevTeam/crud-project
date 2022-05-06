@@ -1,5 +1,5 @@
 <div class="profile-section">
-  <header>
+  <section>
     {{#if session.user}}
     <h1>Welcome {{session.user.name}}!</h1>
     <br>
@@ -8,7 +8,7 @@
     <p id="message-negative">Your profile is incomplete, please <a href="/user/edit/{{session.user._id}}">update</a> your information.</p>
     <br>
     {{/if}}
-  </header>
+  </section>
   <section class="flex-column">
     <div class="account-section">
       <div class="flex-row header-options">

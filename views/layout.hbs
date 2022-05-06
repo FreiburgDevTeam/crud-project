@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,9 +13,9 @@
 <body>
   {{!-- HEADER --}}
   <header class="flex-row">
-    <div>
+    <div class="flex-row">
       <a class="logo" href="/">PetSharing<img src="/images/petsharing-logo.png" alt="petsharin logo"></a>
-      <a href="/pets">PETS</a>
+      <li><a href="/pets">PETS</a></li>
     </div>
     <nav>
       <ul class="flex-row">
@@ -36,15 +37,15 @@
     {{{body}}}
   </section>
       <script src="/js/script.js"></script>
-
-
   <footer>
-    <section class="search-bar footer-stick">
+    <section class="footer-stick">
       <hr class="section-line">
-        <div id="footer-about">
-          <p id="about"><a href="/about">About</a></p>
-        </div>
-      </section>
-    </footer>
-  </body>
+      <div id="footer-about">
+        <a href="/about">About</a>
+      </div>
+
+    </section>
+
+  </footer>
+</body>
 </html>
