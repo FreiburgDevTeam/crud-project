@@ -13,7 +13,7 @@
 <li>Favourite food: {{pet.favouriteFood}}</li>
 <br>
 {{#if userIn}}
-<li>Owner: {{pet.user.name}} <button onclick="document.getElementById('{{pet.user._id}}').innerHTML='Email: {{pet.user.email}}<br><br>Telephone:{{pet.user.telephone}}'"> CONTACT </button></li>
+<li>Owner: {{pet.user.name}} <button class="crud-button" onclick="document.getElementById('{{pet.user._id}}').innerHTML='Email: {{pet.user.email}}<br><br>Telephone:{{pet.user.telephone}}'"> CONTACT </button></li>
 <p id="{{pet.user._id}}"></p>
    {{else}}
         <li>Owner: {{pet.user.name}} <button onclick="document.getElementById('text').innerHTML='To see contact details please consider to Register/Login.'">CONTACT</button></li>
@@ -24,7 +24,7 @@
 <a href="/pets/{{pet._id}}/edit">Edit</a>
 <br>
 <form action="/pets/{{pet._id}}/delete" method="POST">
-<button onclick="return confirm('Are you sure you want this pet?')">Delete</button>
+<button class="crud-button" onclick="return confirm('Are you sure you want this pet?')">Delete</button>
 </form>
 {{/if}}
 <br>

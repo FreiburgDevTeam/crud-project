@@ -1,57 +1,54 @@
-<h2>Post a Pet</h2>
 
+<section class="container-form" >
+  <h1>Post a Pet</h1>
 <form action="/pets/create" method="POST">
 
   <label>
-    Name:
+    Name: <br>
     <input type="text" name="name" required />
     <br/>
   </label>
 
-  <label>
-    Type:
-    <select name="type">
-      <option value="dog">Dog</option>
-      <option value="cat">Cat</option>
-    </select>
-  </label>
-  <br/>
+   <label for="type">Type: </label>
+  <input type="radio" id="type" name="type" value="dog" />Dog
+  <input type="radio" id="type" name="type" value="cat" />Cat
+  <br />
 
   <label>
-    Breed:
+    Breed: <br>
     <input type="text" name="breed" required />
     <br/>
   </label>
 
   <label>
-    City:
+    City:  <br>
     <input type="text" name="city" required />
     <br />
   </label>
 
-  <label>
-    Gender:
-    <select name="gender">
-      <option value="male">Male</option>
-      <option value="female">Female</option> 
-    </select>
-  </label>
+
+<label for="gender">Gender: </label>
+  <input type="radio" id="gender" name="gender" value="male" />Male
+  <input type="radio" id="gender" name="gender" value="female" />Female
+  <br />
 
  
-      {{#each user}}
+{{#each user}}
     <p> Owner: {{name}}</p>
- 
 {{/each}}
-<br>
+
   <label>
-    Favourite Food:
+    Favourite Food: <br>
     <input type="text" name="favouriteFood" required />
     <br/>
   </label>
 
   <label> Description: <br>
-    <textarea name="description" cols="40" rows="8" minlength="10" maxlength="100"> </textarea>
+    <textarea name="description" cols="40" rows="4" minlength="10" maxlength="100"> </textarea>
   </label><br>
-
-  <button type="submit"> Create </button>
+  <br>
+  <div class="flex-row flex-end">
+  <button class="crud-button" type="submit"> Create </button>
+  </div>
 </form>
+</section>
