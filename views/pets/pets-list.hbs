@@ -1,3 +1,4 @@
+<section>
 <section class="filter">
     <div class="flex-row search-bar">
         <form action="/pets?{{req.query}}" method="GET">
@@ -7,15 +8,17 @@
             </select>
             <input type="text" name="city" placeholder="Where? Introduce your city" required>
             <button type="submit">Search</button>
-            
+
             <a href="/pets">View all</a>
-        </form>  
-              {{#if result}}
-            <h1 class="filter">It seems there are no available pets in your selected city!</h1>
-            {{/if}}
+        </form>
     </div>
+    <br>
+        {{#if noResults}}
+        <h2 class="flex-row flex-center message-negative">It seems there are no available pets in your selected city!</h2>
+        <br>
+        {{/if}}
 </section>
-  
+
 <section class="flex-row pets-list">
     {{#each pets}}
     <div class="pet-card grow">
@@ -25,20 +28,10 @@
         <ul>
             <li>City: {{this.city}}</li>
             <li>Description: <br>{{this.description}}</li>
-            {{!-- {{#if ../loggedIn}}
-            <li>Owner: {{user.name}} <button
-                    onclick="document.getElementById('{{this._id}}').innerHTML='Email: {{user.email}}<br><br>Telephone:{{user.telephone}}'">
-                    CONTACT </button></li>
-            <p id="{{this._id}}"></p>
-            {{else}}
-            <li>Owner: {{user.name}} <button
-                    onclick="document.getElementById('{{this._id}}').innerText='To see contact details please consider to Register/Login' ">CONTACT</button>
-            </li>
-            <p id="{{this._id}}"></p>
-            {{/if}} --}}
         </ul>
         <br>
         <a href="/pets/{{this.id}}">More details</a>
     </div>
     {{/each}}
+</section>
 </section>

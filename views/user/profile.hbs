@@ -1,11 +1,11 @@
-<div class="profile-section">
+<section class="profile-section">
   <section>
     {{#if session.user}}
     <h1>Welcome {{session.user.name}}!</h1>
     <br>
     {{#if session.user.telephone}}
     {{else}}
-    <p id="message-negative">Your profile is incomplete, please <a href="/user/edit/{{session.user._id}}">update</a> your information.</p>
+    <p class="message-negative">Your profile is incomplete, please <a href="/user/edit/{{session.user._id}}">update</a> your information.</p>
     <br>
     {{/if}}
   </section>
@@ -65,4 +65,4 @@
   {{else}}
   <p>Please login to see your profile page</p>
   {{/if}}
-</div>
+</section>
