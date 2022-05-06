@@ -7,6 +7,7 @@
   --tertiary: #009ffd;
   --quaternary: rgb(255, 234, 194);
   --quat-opacity: rgb(255, 234, 194, 0.7);
+  --prim-opacity: rgb(0, 65, 102, 0.7);
 }
 
 html {
@@ -17,6 +18,7 @@ body {
   width: 80%;
   margin: auto;
   font: 1.7rem 'Baloo 2', sans-serif, "Lucida Grande", Helvetica, Arial;
+  background-image: linear-gradient(to bottom, var(--quat-opacity), var(--prim-opacity));
 }
 
 a {
@@ -56,16 +58,25 @@ h2 {
   flex-flow: column;
   align-content: center;
 }
+.flex-end {
+  justify-content: flex-end;
+}
 
 /* HEADER */
 header {
-  padding-top: 30px;
+  padding: 20px 0;
   list-style: none;
   justify-content: space-between;
+  background-color: var(--quat-opacity);
+  position: fixed;
+  width: 80%;
+  border-bottom: 2px solid #000;
 }
 
 .logo {
-  font-size: 3rem;
+  display: flex;
+  align-content: center;
+  font-size: 3.3rem;
   margin-right: 70px;
   font-family: 'Fredoka One', sans-serif, "Lucida Grande", Helvetica, Arial;
   color: var(--primary);
@@ -73,28 +84,30 @@ header {
 
 .logo img {
   max-height: 4rem;
-  position: relative;
-  top: 10px;
 }
 
 header a {
   text-decoration: none;
+  margin: 0 40px;
 }
-
-header nav ul li a {
-  margin-left: 40px;
+header li {
+  position: relative;
+  top: 10;
+  font-size: 2rem;
 }
 
 .section-line {
-  height: 5px;
-  background: linear-gradient(135deg, #004166, #009ffd);
-  margin: 20px 0;
+  height: 2px;
+  margin: 0;
+  padding: 0;
+  background: #000;
+  border: none;
 }
 
 /* CONTAINER */
 .container {
   height: auto;
-  /* background-color: var(--quat-opacity); */
+margin-top: 80px;
 }
 
 /* HOME PAGE */
@@ -112,6 +125,7 @@ header nav ul li a {
   padding: 50px;
   background-color: var(--quat-opacity);
   color: var(--primary);
+  border-radius: 20px;
 }
 
 .box input {
@@ -219,14 +233,16 @@ header nav ul li a {
 }
 
 /* FOOTER */
-footer {
-  margin-bottom: 40px;
-}
 
 #footer-about {
+  padding: 30px;
   display: flex;
-  margin: auto;
-  width: 100px;
+  justify-content: center;
+  background-color: var(--prim-opacity);
+}
+#footer-about a {
+  color: #fff;
+  z-index: 2;
 }
 
 /* About PAGE */
@@ -310,8 +326,5 @@ footer {
 }
 .input-form {
   width: 400px;
-}
-.flex-end {
-justify-content: flex-end;
 }
 
