@@ -17,30 +17,28 @@ This web applicacion implement CRUD functionality for pets and also for users.
 
 ## Getting Started
 
-
 ## Install NPM packages
-npm install <packages>
+npm install packages
+
 packages:
- bcrypt: "^5.0.1",
- connect-mongo: "^4.6.0",
- cookie-parser: "^1.4.6",
- dotenv: "^16.0.0",
- express: "^4.18.1",
- express-session: "^1.17.2",
- hbs: "^4.2.0",
- mongoose: "^6.3.1",
- morgan: "^1.10.0",
- serve-favicon: "^2.5.0"
+ - bcrypt: "^5.0.1",
+ - connect-mongo: "^4.6.0",
+ - cookie-parser: "^1.4.6",
+ - dotenv: "^16.0.0",
+ - express: "^4.18.1",
+ - express-session: "^1.17.2",
+ - hbs: "^4.2.0",
+ - mongoose: "^6.3.1",
+ - morgan: "^1.10.0",
+ - serve-favicon: "^2.5.0"
 
 Update your environment variables:
-PORT=
-SESS_SECRET=""
-SALT_ROUNDS=
+ - PORT=
+ - SESS_SECRET=""
+ - SALT_ROUNDS=
 
 ## Developer-Team
 
- Oscar Gonzalez and Alexander Nerz
+ - Oscar Gonzalez [Github](https://github.com/oscargonzalezdev)
 
- ##### Oscars [Github](https://github.com/oscargonzalezdev)
-
- ##### Alexanders [Github](https://github.com/Alex-WD-22)
+ - Alexander Nerz [Github](https://github.com/Alex-WD-22)
