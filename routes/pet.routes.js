@@ -19,10 +19,10 @@ router.get("/", (req, res, next) => {
             Pet.find()
                 .then((allPets) => {
                     if (petsArr.length === 0 ) {
-                        res.render("pets/pets-all-pets", { pets: petsArr, loggedIn, result: true, allPets: allPets})   
+                        res.render("pets/pets-list", { pets: allPets, loggedIn, noResults: true})   
                       } 
                       else {
-                          res.render("pets/pets-list", { pets: petsArr, loggedIn, result: false}) 
+                          res.render("pets/pets-list", { pets: petsArr, loggedIn, noresults: false}) 
                       }
                 })
         })
