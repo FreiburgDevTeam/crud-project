@@ -344,4 +344,6 @@ footer,
 .input-form {
   width: 400px;
 }
-
+.box {
+  width: 30%;
+}
