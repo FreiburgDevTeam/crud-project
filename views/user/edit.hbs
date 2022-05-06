@@ -1,10 +1,11 @@
 
 
-<h1>Profile Page</h1>
-<div >
-  <div >
+
+<div>
+    <div class="box button"> 
 <br />
-<h3>Account details</h3>
+<h1>Profile Page</h1>
+
 <form action="/user/edit/{{user._id}}" method="POST">
   <label>
     Name:
@@ -21,15 +22,19 @@
     <input type="tel" name="telephone" value="{{user.telephone}}" placeholder="33322333" pattern="[0-9]{3}[0-9]{2}[0-9]{3}"/>   
   </label>
 
-  <button class="crud-button" >Save changes</button>
-  <br />
+  <button  class="crud-button " >Save changes</button><br>
+  
 </form>
 <form method="post" action="/user/edit/{{user._id}}/delete">
-
   <button class="crud-button" onclick="return confirm('Do you want to delete your account? All your pets will be removed')">Delete Account</button>
 </form>
-<br>
-<a href="/user/profile">Back</a>
+
+
 </div>
 </div>
 
+<div class="search-bar">
+    <div class="box-about"> 
+        <a href="/user/profile">Back</a>
+    </div>
+</div>
