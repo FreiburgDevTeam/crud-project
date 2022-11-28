@@ -2,8 +2,10 @@
 
 ## Description
 
-PetSharing allows you to find pets in your city or share your pet with locals when you need it.
-This web applicacion implement CRUD functionality for pets and also for users.
+PetSharing helps find pets and pet lovers close to you. Find a new friend or share your pet with locals when you need it.
+This web application implements CRUD functionality for pets and also for users.
+
+
 ![petsharing demo](./public/images/petsharing-demo.png)
 
 ## Built With
@@ -15,30 +17,39 @@ This web applicacion implement CRUD functionality for pets and also for users.
 * HTML
 * CSS
 
+
+## APIs
+
+* Dog API
+
+
 ## Getting Started
 
-## Install NPM packages
-npm install packages
+To get and run a local copy of this project follow the instructions below.
 
-packages:
- - bcrypt: "^5.0.1",
- - connect-mongo: "^4.6.0",
- - cookie-parser: "^1.4.6",
- - dotenv: "^16.0.0",
- - express: "^4.18.1",
- - express-session: "^1.17.2",
- - hbs: "^4.2.0",
- - mongoose: "^6.3.1",
- - morgan: "^1.10.0",
- - serve-favicon: "^2.5.0"
+### Installation
 
-Update your environment variables:
- - PORT=
- - SESS_SECRET=""
- - SALT_ROUNDS=
+1. Clone the repo
+   ```sh
+   git clone https://github.com/FreiburgDevTeam/crud-project.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the project locally
+   ```sh
+   npm start
+   ```
+
 
 ## Developer-Team
 
  - Oscar Gonzalez [Github](https://github.com/oscargonzalezdev)
 
  - Alexander Nerz [Github](https://github.com/Alex-WD-22)
+
+
+## Demo
+
+ - [Pet Sharing](https://petsharing.up.railway.app)
