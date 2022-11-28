@@ -1,7 +1,7 @@
 
 <section class="container-form" > <br>
   <h1>Post a Pet</h1>
-<form action="/pets/create" method="POST">
+<form action="/pets/create" method="POST" autocomplete="off">
 
   <label>
     Name: <br>
@@ -9,14 +9,19 @@
     <br/>
   </label>
 
-   <label for="type">Type: </label>
+  <label for="type">Type: </label>
   <input type="radio" id="type" name="type" value="dog" />Dog
   <input type="radio" id="type" name="type" value="cat" />Cat
   <br />
 
   <label>
     Breed: <br>
-    <input type="text" name="breed" required />
+    <input type="text" name="breed" id="breed" list="breedsList" required />
+    <datalist id="breedsList">
+        {{#each breeds}}
+        <option value="{{this}}">{{this}}</option>
+        {{/each}}
+    </datalist>
     <br/>
   </label>
 

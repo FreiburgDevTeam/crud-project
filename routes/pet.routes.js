@@ -1,3 +1,4 @@
+const { default: axios } = require("axios");
 const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isOwner = require("../middleware/isOwner");
@@ -34,15 +35,22 @@ router.get("/", (req, res, next) => {
 });
 
 // create a Pet
-router.get("/create", isLoggedIn, (req, res, next) => {  
-    User.find(req.session.user)
-        .then(userName => {
-            res.render("pets/pet-create", {user: userName});
-        })
-        .catch(err => {
-            console.log("error getting user from DB", err)
-            next(err);
-        });    
+router.get("/create", isLoggedIn, (req, res, next) => {
+    let breedList;
+    // GET breeds from dog API
+    axios.get('https://dog.ceo/api/breeds/list')
+    .then((response) => {
+        breedList = response.data.message;
+            // query to search the user of the session
+            User.find(req.session.user)
+            .then(userName => {
+                res.render("pets/pet-create", {user: userName, breeds: breedList});
+            })
+      })
+    .catch(err => {
+        console.log("error getting user from DB", err)
+        next(err);
+    });
 });
 
 // process create form
